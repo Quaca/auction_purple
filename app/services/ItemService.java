@@ -1,13 +1,11 @@
 package services;
 
-import com.amazonaws.services.dynamodbv2.xspec.S;
 import models.Item;
 import repositories.ItemRepository;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 @Singleton

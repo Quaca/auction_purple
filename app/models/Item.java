@@ -1,17 +1,16 @@
 package models;
 
-import org.h2.engine.User;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.jpa.HibernateEntityManager;
-import play.db.jpa.JPA;
-
-import javax.annotation.Generated;
-import javax.persistence.*;
-import javax.xml.crypto.Data;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "item")
