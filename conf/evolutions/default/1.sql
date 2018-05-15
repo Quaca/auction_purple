@@ -128,4 +128,3 @@ DROP table if exists item;
 DROP TABLE if exists bidding;
 DROP TABLE if exists "order";
 DROP TABLE if exists item_photo;
-

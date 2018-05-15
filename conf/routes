@@ -37,3 +37,5 @@ GET     /assets/*file                                       controllers.Assets.a
 GET     /fonts/*file                                        controllers.Assets.at(path="/public/fonts", file)
 GET     /                                                   controllers.HomeController.index(slug="")
 GET     /*slug                                              controllers.HomeController.index(slug)
+
+
