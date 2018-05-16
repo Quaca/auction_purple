@@ -2,15 +2,13 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+
 # Creates item
 POST    /api/v1/item                controllers.ItemController.create()
-
 # Get item
 GET     /api/v1/item/:id            controllers.ItemController.retrieve(id:String)
-
 # List all items
 GET     /api/v1/item                controllers.ItemController.listItems()
-
 # Get popular items
 GET     /api/v1/getPopularItems     controllers.ItemController.getPopularItems()
 GET     /api/v1/getLastChance       controllers.ItemController.getLastChance()
@@ -24,6 +22,15 @@ PUT     /api/v1/item                controllers.ItemController.update()
 DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
 
 
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 
 
