@@ -43,7 +43,7 @@ a{
   background-color: white;
 }
 
-//-------------------------------------------------------------
+//-----------------------Top-bar and Navbar------------------------------------
 #top-bar{
   background-color: $dark-grey;
 }
@@ -109,6 +109,8 @@ input[type="search"], input[type="password"], textarea, select {
   background-color: transparent;
 }
 
+//-----------------------Landing item-----------------------------
+
 .custom-button{
   display: inline-block;
   font-weight: 400;
@@ -170,22 +172,7 @@ input[type="search"], input[type="password"], textarea, select {
   padding-top: 70px;
 }
 
-// .item-image{
-//   padding-top: 30px;
-//   padding-bottom: 20px;
-// }
-
-// #feature-collection .thumb{
-//   height: 400px;
-// }
-// .thumb img{
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   width: 100%;
-// }
-
-
-
+//--------------------Feature-----------------------------
 
 #feature-collection .thumb{
   height: 350px;
@@ -221,6 +208,9 @@ input[type="search"], input[type="password"], textarea, select {
   }
 }
 
+
+
+//--------------------Tabs--------------------
 
 .tabs{
   margin: 20px 0px 20px 0px;
@@ -268,6 +258,9 @@ input[type="search"], input[type="password"], textarea, select {
     cursor: default;
 }
 
+
+//------------------------Footer----------------------
+
 #page-footer{
   background-color: $dark-grey;
 }
@@ -285,21 +278,12 @@ input[type="search"], input[type="password"], textarea, select {
   clear: both;
 }
 
-
-
-  .footer-list li {
-    display: block;
-    color: #fff;
-    font-size: 14px;
-  }
-
-.footer-copy {
-  font-size: 14px;
-  font-weight: 400;
+.footer-list li {
+  display: block;
   color: #fff;
-  opacity: 0.4;
-  padding: 0 10px;
+  font-size: 14px;
 }
+
 
 input[type=text] {
   background-color: white;
