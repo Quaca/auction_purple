@@ -11,6 +11,8 @@ Router.map(function() {
   this.route('about');
   this.route('privacy-and-policy');
   this.route('terms-and-conditions');
+  this.route('register');
+  this.route('login');
 });
 //{path: 'item/:item_id'}
 export default Router;
