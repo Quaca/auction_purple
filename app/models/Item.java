@@ -1,6 +1,5 @@
 package models;
 
-<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,20 +11,7 @@ import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-=======
-import org.h2.engine.User;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.jpa.HibernateEntityManager;
-import play.db.jpa.JPA;
 
-import javax.annotation.Generated;
-import javax.persistence.*;
-import javax.xml.crypto.Data;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-import javax.persistence.ManyToOne;
->>>>>>> Landing-page(2)
 
 @Entity
 @Table(name = "item")

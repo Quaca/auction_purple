@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-<<<<<<< f936bc15ae0b3378ca25315665c89f44d557bea6
 
     userService: Ember.inject.service('user-service'),
 
@@ -22,6 +21,4 @@ export default Route.extend({
             controller.set('currentUser', JSON.parse(cookie));
         }
     }
-=======
->>>>>>> Initial commit
 });

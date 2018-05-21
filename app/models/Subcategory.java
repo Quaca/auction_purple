@@ -1,7 +1,6 @@
 package models;
 
 
-<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-=======
-import javax.persistence.*;
->>>>>>> Landing-page(2)
 import java.util.UUID;
 
 @Entity
