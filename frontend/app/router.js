@@ -7,6 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('item');
+  this.route('about');
+  this.route('privacy-and-policy');
+  this.route('terms-and-conditions');
 });
-
+//{path: 'item/:item_id'}
 export default Router;
