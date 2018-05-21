@@ -16,7 +16,11 @@
                 </div>
             </div>
             <div class="row juctify-content-between">
+<<<<<<< 27c22a56dc4a50813e90368857a859e7409be507
                 {{#each popularItems as |itemUnit|}}
+=======
+                {{#each model1 as |itemUnit|}}
+>>>>>>> Added static landing-page
                         <div class="col-lg-4 my-3">
                             {{#link-to 'item'}}
                             {{feature-collection item=itemUnit}}
@@ -26,6 +30,7 @@
             </div>
         </div>
         <div id="feature-product" class="mt-5">
+<<<<<<< 27c22a56dc4a50813e90368857a859e7409be507
             <div class="row">
                 <div class="col-sm-12">
                     <h3 class="pb-2 border-d-2">Feature Products</h3>
@@ -43,6 +48,75 @@
         </div>
         {{top-rated}}
     </div>
+=======
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="pb-2 border-d-2">Feature Products</h3>
+                    </div>
+                </div>
+                <div class="row juctify-content-between">
+                    {{#each model2 as |itemUnit|}}
+                            <div class="col-lg-3 my-3">
+                                {{#link-to 'item'}}
+                                {{feature-collection item=itemUnit}}
+                                {{/link-to}}
+                            </div>    
+                    {{/each}}
+                </div>
+        </div>
+        <div id="custom-product" class="mt-5">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="tabs">
+                            <a href="#new-arrivals" class="tabs-tab tabs-tab-active">New Arrivals</a>
+                            <a href="#top-rated" class="tabs-tab">Top Rated</a>
+                            <a href="#last-chance" class="tabs-tab">Last Chance</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tab-content juctify-content-between">
+                    <div id="new-arrivals" role="tabpanel" class="col-sm-12">
+                        <div class="row">
+                            {{#each model2 as |itemUnit|}}
+                                <div class="col-lg-3 my-3">
+                                    {{#link-to 'item'}}
+                                        {{feature-collection item=itemUnit}}
+                                    {{/link-to}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row tab-content juctify-content-between">                
+                    <div id="top-rated" role="tabpanel" class="col-sm-12">
+                        <div class="row">
+                            {{#each model2 as |itemUnit|}}
+                                <div class="col-lg-3 my-3">
+                                    {{#link-to 'item'}}
+                                        {{feature-collection item=itemUnit}}
+                                    {{/link-to}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row tab-content juctify-content-between">                
+                    <div id="last-chance" role="tabpanel" class="col-sm-12">
+                        <div class="row">
+                            {{#each model2 as |itemUnit|}}
+                                <div class="col-lg-3 my-3">
+                                    {{#link-to 'item'}}
+                                        {{feature-collection item=itemUnit}}
+                                    {{/link-to}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>      
+                    
+                </div>
+            </div>
+        </div>
+>>>>>>> Added static landing-page
         
     {{outlet}}
 </main>
