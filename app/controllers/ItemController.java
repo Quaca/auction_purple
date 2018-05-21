@@ -13,10 +13,6 @@ import services.ItemService;
 
 import javax.inject.Inject;
 import java.util.List;
-<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
-=======
-import java.util.Set;
->>>>>>> Landing-page(2)
 import java.util.UUID;
 
 public class ItemController extends Controller {

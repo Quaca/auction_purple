@@ -36,11 +36,14 @@ DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
 =======
 
 
+<<<<<<< c0a431678ecb90cab65018004e8739325b31feaf
 
 
 >>>>>>> Landing-page(2)
 
 
+=======
+>>>>>>> Added login and register page
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 # An example controller showing how to use dependency injection

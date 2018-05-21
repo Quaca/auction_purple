@@ -1,8 +1,20 @@
 <main>
     <div class="container">
-        <div class="row">
-            <div class="margin-m col-sm-12 col-md-6 col-md-offset-3">
-
+        <div class="row my-4">
+            <div class="col-sm-12 col-md-6 offset-md-3 border-1">
+                <div class="register-title">
+                    <h3>Register</h3>
+                </div>
+                <label for="firstname">First Name</label>
+                {{input id="firstname" class='form-input mb-4' type='text' placeholder='First Name' value=first_name}}
+                <label for="last_name">Last Name</label>
+                {{input id="last_name" class='form-input mb-4' type='text' placeholder='Last Name' value=last_name}}
+                <label for="email">Enter Email</label>
+                {{input id="email" class='form-input mb-4' type='email' placeholder='Email' value=email}}
+                <label for="password">Password</label>
+                {{input id="password" class='form-input mb-4' type='password' placeholder='Password' value=password}}
+                <button class="form-button" action="register">Register</button>
+                <p class="text-center">Already have an account? {{#link-to 'login'}}Login{{/link-to}}</p>
             </div>
         </div>
     </div>
