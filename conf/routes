@@ -3,19 +3,28 @@
 # ~~~~
 
 # Creates item
-POST    /item                       controllers.ItemController.create()
+POST    /api/v1/item                controllers.ItemController.create()
 
 # Get item
-GET     /item/:id                   controllers.ItemController.retrieve(id:Int)
+GET     /api/v1/item/:id            controllers.ItemController.retrieve(id:String)
 
 # List all items
-GET     /item                       controllers.ItemController.listItems()
+GET     /api/v1/item                controllers.ItemController.listItems()
+
+# Get popular items
+GET     /api/v1/getPopularItems     controllers.ItemController.getPopularItems()
+GET     /api/v1/getLastChance       controllers.ItemController.getLastChance()
+GET     /api/v1/getNewArrivals      controllers.ItemController.getNewArrivals()
+GET     /api/v1/getFeatureProducts  controllers.ItemController.getFeatureProducts()
 
 # Update item
-PUT     /item                       controllers.ItemController.update()
+PUT     /api/v1/item                controllers.ItemController.update()
 
 # Delete item
-DELETE  /item/:id                   controllers.ItemController.delete(id:Int)
+DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
+
+
+
 
 
 

@@ -4,9 +4,9 @@
                 <div class="col-sm-12 col-md-4 mb-2">
                     <h6 class="c-grey">Auction</h6>
                     <ul class="footer-list footer-list-right">
-                        <li>{{#link-to 'about'}}About us{{/link-to}}</li>
-                        <li>{{#link-to 'terms-and-conditions'}}Terms and Conditions{{/link-to}}</li>
-                        <li>{{#link-to 'privacy-and-policy'}}Privacy and Policy{{/link-to}}</li>
+                        <li>{{#link-to 'about' class="c-white"}}About us{{/link-to}}</li>
+                        <li>{{#link-to 'terms-and-conditions' class="c-white"}}Terms and Conditions{{/link-to}}</li>
+                        <li>{{#link-to 'privacy-and-policy' class="c-white"}}Privacy and Policy{{/link-to}}</li>
                     </ul>
                 </div>
                 <div class="col-sm-12 col-md-4 mb-2">
@@ -29,10 +29,12 @@
                     <ul class="footer-list footer-list-grey">
                         <li>Enter your email address and get notified about new products. We hate spam!</li>
                         <li>
-                            <div class="row">
-                                <div class="box col-sm-12">
-                                    <input class="" type="text" id="newsletter-email" placeholder="Your Email address" />
-                                    <button class="custom-button">Go     {{fa-icon 'angle-right'}}</button>
+                            <div class="row pt-1">
+                                <div class="box col-sm-12 col-lg-9 pr-lg-1">
+                                    {{input type="text" id="newsletter-email" placeholder="Your Email address"}}
+                                </div>
+                                <div class="box col-sm-12 col-lg-3 pl-lg-1 w-100">
+                                    <button class="custom-button">Go {{fa-icon 'angle-right'}}</button>
                                 </div>
                             </div>
                         </li>

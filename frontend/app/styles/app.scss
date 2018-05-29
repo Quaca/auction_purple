@@ -27,17 +27,20 @@ $dark-grey: #252525;
   border-bottom: 2px solid $light-grey;
 }
 a{
-  color: inherit;
+  color: #4a90e2;
   text-decoration: none;
   background-color: transparent;
   &:hover{
     color: #0056b3;
-    text-decoration: none !important;
+    text-decoration: none;
   }
 }
 
 .c-grey{
   color: grey;
+}
+.c-white{
+  color:white;
 }
 .bg-white{
   background-color: white;
@@ -49,15 +52,6 @@ a{
 }
 #nav-items{
   flex-grow: 0;
-}
-
-#page-nav{
-
-  @media screen and(min-width:576px) {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  
 }
 
 #items{
@@ -113,6 +107,7 @@ input[type="search"], input[type="password"], textarea, select {
 
 .custom-button{
   display: inline-block;
+  width: 100%;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
@@ -122,7 +117,8 @@ input[type="search"], input[type="password"], textarea, select {
   background-color: white;
   user-select: none;
   border: 1px solid #8367D8;
-  padding: 12px 20px;
+  padding: 12px 0px;
+  margin: 8px 0px;
   font-size: 1rem;
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -175,27 +171,36 @@ input[type="search"], input[type="password"], textarea, select {
 //--------------------Feature-----------------------------
 
 #feature-collection .thumb{
-  height: 350px;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
-  background-color: white !important;
+  height: 250px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
   width: 100%;
 }
 #feature-product .thumb{
-  height: 400px;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
-  background-color: white !important;
+  height: 300px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
   width: 100%;
 }
 #custom-product .thumb{
   height: 200px;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
-  background-color: white !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
+  width: 100%;
+}
+
+.tab-content .thumb{
+  height: 200px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
   width: 100%;
 }
 .hover-effect{
@@ -203,7 +208,7 @@ input[type="search"], input[type="password"], textarea, select {
 
   &:hover{
     color: black;
-    text-decoration: none !important;
+    text-decoration: none;
     border: 2px solid red;
   }
 }
@@ -217,7 +222,6 @@ input[type="search"], input[type="password"], textarea, select {
   padding-left: 20px;
   padding-right: 20px;
   border-bottom: 2px solid #eee;
-  clear: both;
 }
 
 .tabs{
@@ -232,21 +236,27 @@ input[type="search"], input[type="password"], textarea, select {
 }
 .tabs-tab{
   display: inline-block;
+  cursor: pointer;
   padding: 20px 5px;
   margin-right: 20px;
   margin-bottom: -2px;
   text-decoration: none;
   font-size: 25px;
   font-weight: 600;
-  color: #666;
   &:last-child{
     margin-right: 0
   }
   &:hover{
     color: #4a90e2;
-    text-decoration: none !important;
+    text-decoration: none;
+  }
+  a{
+    &:hover{
+      color: #4a90e2;
+    }
   }
 }
+
 
 
 
@@ -294,19 +304,6 @@ input[type=text] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
-
-  @media screen and(min-width: 992px) {
-    width: 70%;
-  }
-}
-
-.box{
-  .custom-button{
-    @media screen and(max-width:992px){
-      width: 100%;
-    }
-    
-  }
 }
 
 .footer-wrap{

@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="tabs">
+            <a {{action "button1Clicked"}} class="tabs-tab {{if button1 "tabs-tab-active"}}" >New Arrivals</a>
+            <a {{action "button2Clicked"}} class="tabs-tab {{if button2 "tabs-tab-active"}}">Top Rated</a>
+            <a {{action "button3Clicked"}} class="tabs-tab {{if button3 "tabs-tab-active"}}">Last Chance</a>
+        </div>
+    </div>
+</div>
+<div class="row tab-content">
+    {{#if button1}}
+                {{#each newArrivals as |itemUnit|}}
+                    <div class="col-lg-3 my-3">
+                        {{#link-to 'item'}}
+                            {{feature-collection item=itemUnit}}
+                        {{/link-to}}
+                    </div>
+                {{/each}}
+    {{/if}}
+    {{#if button2}}
+                {{#each newArrivals as |itemUnit|}}
+                    <div class="col-lg-3 my-3">
+                        {{#link-to 'item'}}
+                            {{feature-collection item=itemUnit}}
+                        {{/link-to}}
+                    </div>
+                {{/each}}
+    {{/if}}
+    {{#if button3}}
+                {{#each lastChance as |itemUnit|}}
+                    <div class="col-lg-3 my-3">
+                        {{#link-to 'item'}}
+                            {{feature-collection item=itemUnit}}
+                        {{/link-to}}
+                    </div>
+                {{/each}}
+    {{/if}}
+</div>

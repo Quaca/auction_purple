@@ -1,5 +1,6 @@
 package models;
 
+import org.h2.engine.User;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.jpa.HibernateEntityManager;
 import play.db.jpa.JPA;
@@ -8,23 +9,27 @@ import javax.annotation.Generated;
 import javax.persistence.*;
 import javax.xml.crypto.Data;
 import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "item")
 
 public class Item {
 
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "id")
-    private int id;
+    private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private models.User user;
 
     @ManyToOne
-    @JoinColumn(name = "subcategory_id")
+    @JoinColumn(name = "subcategory_id", referencedColumnName = "id")
     private Subcategory subcategory;
 
     @Column(name = "name")
@@ -35,15 +40,6 @@ public class Item {
 
     @Column(name = "description")
     private String description;
-
-    @Column(name = "image1")
-    private String mainImage;
-
-    @Column(name = "image2")
-    private String image2;
-
-    @Column(name = "image3")
-    private String image3;
 
     @Column(name = "color")
     private String color;
@@ -66,20 +62,23 @@ public class Item {
     @Column(name = "condition")
     private String condition;
 
-    public int getId() {
+    @OneToMany(mappedBy = "itemId")
+    private List<ItemPhoto> photos;
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public Client getClient() {
-        return client;
+    public models.User getUser() {
+        return user;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setUser(models.User user) {
+        this.user = user;
     }
 
     public Subcategory getSubcategory() {
@@ -112,30 +111,6 @@ public class Item {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getMainImage() {
-        return mainImage;
-    }
-
-    public void setMainImage(String mainImage) {
-        this.mainImage = mainImage;
-    }
-
-    public String getImage2() {
-        return image2;
-    }
-
-    public void setImage2(String image2) {
-        this.image2 = image2;
-    }
-
-    public String getImage3() {
-        return image3;
-    }
-
-    public void setImage3(String image3) {
-        this.image3 = image3;
     }
 
     public String getColor() {
@@ -192,5 +167,13 @@ public class Item {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+
+    public List<ItemPhoto> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<ItemPhoto> photos) {
+        this.photos = photos;
     }
 }

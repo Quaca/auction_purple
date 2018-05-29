@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @Singleton
 public class ItemService {
@@ -24,7 +25,7 @@ public class ItemService {
         return item;
     }
 
-    public Item getItem(int id){
+    public Item getItem(UUID id){
         return repository.get(id);
     }
 
@@ -32,10 +33,20 @@ public class ItemService {
         return repository.getAllItems();
     }
 
-    public boolean delete(int id){
-        if(repository.delete(id)){
-            return true;
-        }
-        return false;
+    public boolean delete(UUID id){
+        return repository.delete(id);
+    }
+
+    public List<Item> getPopularItems(){
+        return repository.getPopularItems();
+    }
+    public List<Item> getLastChance() {
+        return repository.getLastChance();
+    }
+    public List<Item> getNewArrivals(){
+        return repository.getNewArrivals();
+    }
+    public List<Item> getFeatureProducts(){
+        return repository.getFeatureProducts();
     }
 }

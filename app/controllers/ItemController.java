@@ -2,28 +2,34 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import models.Item;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import scala.util.parsing.json.JSONObject;
 import services.ItemService;
 
 import javax.inject.Inject;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 public class ItemController extends Controller {
 
     @Inject private ItemService service;
 
+    private JsonNode giveJsonNode(){
+        return request().body().asJson();
+    }
+
     @Transactional
     public Result create(){
-        JsonNode json = request().body().asJson();
-        if (json == null){
+        if (giveJsonNode() == null){
             return badRequest();
         }
-        Item item = service.addItem(Json.fromJson(json, Item.class));
+        Item item = service.addItem(Json.fromJson(giveJsonNode(), Item.class));
         JsonNode jsonObject = Json.toJson(item);
 
         return created(jsonObject);
@@ -31,22 +37,21 @@ public class ItemController extends Controller {
 
     @Transactional
     public Result update(){
-        JsonNode json = request().body().asJson();
-        if (json == null){
+        if (giveJsonNode() == null){
             return badRequest();
         }
-        Item item = service.updateItem(Json.fromJson(json, Item.class));
+        Item item = service.updateItem(Json.fromJson(giveJsonNode(), Item.class));
         JsonNode jsonObject = Json.toJson(item);
 
         return ok(jsonObject);
     }
 
     @Transactional(readOnly = true)
-    public Result retrieve(int id){
-        if (service.getItem(id) == null){
+    public Result retrieve(String id){
+        if (service.getItem(UUID.fromString(id)) == null){
             return notFound("Not found");
         }
-        JsonNode jsonObject = Json.toJson(service.getItem(id));
+        JsonNode jsonObject = Json.toJson(service.getItem(UUID.fromString(id)));
         return ok(jsonObject);
     }
 
@@ -59,10 +64,32 @@ public class ItemController extends Controller {
     }
 
     @Transactional
-    public Result delete(int id){
-        if (!service.delete(id)){
-            return notFound("Not found");
-        }
-        return ok("Deleted");
+    public Result delete(String id){
+        service.delete(UUID.fromString(id));
+        return noContent();
+    }
+
+    @Transactional
+    public Result getPopularItems(){
+        JsonNode jsonObject = Json.toJson(service.getPopularItems());
+        return ok(jsonObject);
+    }
+
+    @Transactional
+    public Result getLastChance(){
+        JsonNode jsonObject = Json.toJson(service.getLastChance());
+        return ok(jsonObject);
+    }
+
+    @Transactional
+    public Result getNewArrivals(){
+        JsonNode jsonObject = Json.toJson(service.getNewArrivals());
+        return ok(jsonObject);
+    }
+
+    @Transactional
+    public Result getFeatureProducts(){
+        JsonNode jsonObject = Json.toJson(service.getFeatureProducts());
+        return ok(jsonObject);
     }
 }
