@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
 <<<<<<< 27c22a56dc4a50813e90368857a859e7409be507
 import Ember from 'ember';
 import { alias } from '@ember/object/computed'
@@ -19,8 +20,24 @@ export default Controller.extend({
 });
 =======
 
+=======
+import Ember from 'ember';
+import { alias } from '@ember/object/computed'
+//import {service as itemService} from '../services/item-service';
+>>>>>>> Landing-page(2)
 export default Controller.extend({
+    popularItems: alias('model.popularItems'),
+    featureProducts: alias('model.featureProducts')
+    // lastChanceItems: alias('model.lastChance'),
+    // newArrivalsItems: alias('model.newArrivals'),
+    
+    
 
+    // actions:{
+
+    // },
+
+<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
     model1: [
         {
             name:"Shoes",
@@ -62,3 +79,7 @@ export default Controller.extend({
     ]
 });
 >>>>>>> Added static landing-page
+=======
+    
+});
+>>>>>>> Landing-page(2)
