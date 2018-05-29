@@ -2,6 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+<<<<<<< 99f2d8a7d916d939789e8d419043b6c8b636c7d8
 #USER ROUTES
 
 POST    /api/v1/register            controllers.UserController.register()
@@ -11,13 +12,27 @@ POST    /api/v1/generateToken       controllers.UserController.generateToken()
 POST    /api/v1/changePassword      controllers.UserController.changePassword()
 POST    /api/v1/subscribe           controllers.UserController.subscribe()
 
+=======
+<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
+=======
+# Creates item
+POST    /api/v1/item                controllers.ItemController.create()
+>>>>>>> Landing-page(2)
+>>>>>>> Landing-page(2)
 
 # Creates item
 POST    /api/v1/item                controllers.ItemController.create()
 # Get item
 GET     /api/v1/item/:id            controllers.ItemController.retrieve(id:String)
+<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
 # List all items
 GET     /api/v1/item                controllers.ItemController.listItems()
+=======
+
+# List all items
+GET     /api/v1/item                controllers.ItemController.listItems()
+
+>>>>>>> Landing-page(2)
 # Get popular items
 GET     /api/v1/getLandingItem      controllers.ItemController.getLandingItem()
 GET     /api/v1/getPopularItems     controllers.ItemController.getPopularItems()
@@ -30,6 +45,13 @@ PUT     /api/v1/item                controllers.ItemController.update()
 
 # Delete item
 DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
+<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
+=======
+
+
+
+
+>>>>>>> Landing-page(2)
 
 
 # EMBER PASSTHROUGH ROUTES ---------------------------------------------------------------------------------------------

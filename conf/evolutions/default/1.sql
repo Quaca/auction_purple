@@ -107,6 +107,7 @@ CREATE TABLE if not exists item_photo(
 
 # --- !Downs
 
+<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
 ALTER TABLE payment DROP CONSTRAINT payment_credit_card_id;
 ALTER TABLE payment DROP CONSTRAINT payment_paypal_id;
 ALTER table subcategory DROP CONSTRAINT subcategory_category_id;
@@ -128,3 +129,26 @@ DROP table if exists item;
 DROP TABLE if exists bidding;
 DROP TABLE if exists "order";
 DROP TABLE if exists item_photo;
+=======
+DROP table if exists paypal;
+DROP table if exists credit_card;
+ALTER TABLE payment DROP CONSTRAINT payment_credit_card_id;
+ALTER TABLE payment DROP CONSTRAINT payment_paypal_id;
+DROP table if exists payment;
+ALTER table subcategory DROP CONSTRAINT subcategory_category_id;
+DROP table if exists subcategory;
+ALTER TABLE "user" DROP CONSTRAINT user_payment_id;
+DROP table if exists "user";
+ALTER TABLE item DROP CONSTRAINT item_user_id;
+ALTER TABLE item DROP CONSTRAINT item_subcategory_id;
+DROP table if exists item;
+ALTER TABLE bidding DROP CONSTRAINT bidding_user_id;
+ALTER TABLE bidding DROP CONSTRAINT bidding_item_id;
+DROP TABLE if exists bidding;
+ALTER TABLE "order" DROP CONSTRAINT order_bidding_id;
+ALTER TABLE "order" DROP CONSTRAINT order_item_id;
+DROP TABLE if exists "order";
+ALTER TABLE item_photo DROP CONSTRAINT item_photo_id;
+DROP TABLE if exists item_photo;
+
+>>>>>>> Landing-page(2)

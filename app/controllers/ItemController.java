@@ -2,15 +2,21 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import models.Item;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import scala.util.parsing.json.JSONObject;
 import services.ItemService;
 
 import javax.inject.Inject;
 import java.util.List;
+<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
+=======
+import java.util.Set;
+>>>>>>> Landing-page(2)
 import java.util.UUID;
 
 public class ItemController extends Controller {
