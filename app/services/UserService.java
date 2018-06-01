@@ -8,12 +8,11 @@ import models.helpers.CustomError;
 import models.helpers.LoginForm;
 import models.helpers.PasswordResetToken;
 import models.helpers.RegisterForm;
-import play.libs.mailer.Email;
-import play.libs.mailer.MailerClient;
 import repositories.UserRepository;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,8 +20,6 @@ import java.util.regex.Pattern;
 public class UserService {
 
     @Inject private UserRepository repository;
-    @Inject MailerClient mailerClient;
-
 
     public CustomError register(RegisterForm registerForm){
 
@@ -58,6 +55,10 @@ public class UserService {
         }
         else {return null;}
 
+    }
+
+    public User get(UUID id){
+        return repository.get(id);
     }
 
     private boolean validateEmail(String emailStr)
@@ -96,16 +97,5 @@ public class UserService {
     public PasswordResetToken addToken(PasswordResetToken token){
         repository.createToken(token);
         return token;
-    }
-
-    public void sendEmail(String receivingEmail, String token) {
-        String cid = "1234";
-        Email email = new Email()
-                .setSubject("Reset password")
-                .setFrom("auction.purple@gmail.com")
-                .addTo(receivingEmail)
-                .setBodyText("Hello")
-                .setBodyHtml("<html><body><p>This is your token for changing password</p><p><a href='https://protected-savannah-98705.herokuapp.com/#/change-password?key="+token+"'>"+token+"</a></p></body></html>");
-        mailerClient.send(email);
     }
 }

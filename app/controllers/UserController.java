@@ -5,6 +5,7 @@ import models.Subscriber;
 import models.User;
 import models.helpers.LoginForm;
 import models.helpers.PasswordResetToken;
+
 import models.helpers.RegisterForm;
 import play.data.Form;
 import play.data.FormFactory;
@@ -20,11 +21,11 @@ import javax.inject.Inject;
 import java.util.Date;
 import java.util.UUID;
 
+
 public class UserController extends Controller {
 
     @Inject public UserService service;
     @Inject private FormFactory formFactory;
-
 
     @Transactional
     public Result register() {
@@ -35,6 +36,7 @@ public class UserController extends Controller {
         if(service.register(form.get()).getSuccessful() == true){
             session("logged", user.toString());
             return ok(Json.toJson(user));
+
         }
         else {
             return badRequest(service.register(form.get()).getMessage());
@@ -118,7 +120,6 @@ public class UserController extends Controller {
         session().clear();
         return ok("Logged out");
     }
-
 
 
 }

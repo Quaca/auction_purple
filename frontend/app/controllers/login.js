@@ -41,6 +41,5 @@ export default baseController.extend({
             );
         }
     }
-
     
 });

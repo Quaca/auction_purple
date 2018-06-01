@@ -2,7 +2,6 @@ import Controller from '@ember/controller';
 import Ember from 'ember';
 
 export default Controller.extend({
-<<<<<<< 94ffea71f826cd8158ca267005d2450342cac3b2
 
     userService: Ember.inject.service('user-service'),
 
@@ -46,6 +45,4 @@ export default Controller.extend({
             )
         }
     }
-=======
->>>>>>> Added login and register page
 });

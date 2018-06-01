@@ -11,7 +11,6 @@ import play.db.jpa.JPAApi;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.util.UUID;
 
 @Singleton
 public class UserRepository {
@@ -64,6 +63,7 @@ public class UserRepository {
                 .add(Restrictions.eq("token", token))
                 .uniqueResult();
         getSession().delete(passwordResetToken);
+
     }
 
     public User giveUser(String email){
@@ -92,7 +92,5 @@ public class UserRepository {
                 .uniqueResult();
         getSession().delete(subscriber1);
     }
-
-
 
 }

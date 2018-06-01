@@ -34,14 +34,8 @@ PUT     /api/v1/item                controllers.ItemController.update()
 DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
 
 
-
-
-
->>>>>>> Landing-page(2)
-
-
-<<<<<<< 94ffea71f826cd8158ca267005d2450342cac3b2
 # EMBER PASSTHROUGH ROUTES ---------------------------------------------------------------------------------------------
+
 
 
 GET     /assets/*file                                       controllers.Assets.at(path="/public/assets", file)
