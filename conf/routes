@@ -2,25 +2,17 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
-=======
-# Creates item
-POST    /api/v1/item                controllers.ItemController.create()
->>>>>>> Landing-page(2)
+#USER ROUTES
+
+POST    /api/v1/register            controllers.UserController.register()
+POST    /api/v1/login               controllers.UserController.login()
 
 # Creates item
 POST    /api/v1/item                controllers.ItemController.create()
 # Get item
 GET     /api/v1/item/:id            controllers.ItemController.retrieve(id:String)
-<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
 # List all items
 GET     /api/v1/item                controllers.ItemController.listItems()
-=======
-
-# List all items
-GET     /api/v1/item                controllers.ItemController.listItems()
-
->>>>>>> Landing-page(2)
 # Get popular items
 GET     /api/v1/getPopularItems     controllers.ItemController.getPopularItems()
 GET     /api/v1/getLastChance       controllers.ItemController.getLastChance()
@@ -32,18 +24,8 @@ PUT     /api/v1/item                controllers.ItemController.update()
 
 # Delete item
 DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
-<<<<<<< b960e14c022738ee71d217503417bd5c123699c8
-=======
 
 
-<<<<<<< c0a431678ecb90cab65018004e8739325b31feaf
-
-
->>>>>>> Landing-page(2)
-
-
-=======
->>>>>>> Added login and register page
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 # An example controller showing how to use dependency injection

@@ -5,10 +5,13 @@
                 <div class="register-title">
                     <h3>Login</h3>
                 </div>
+                {{#if errorMessage}}
+                    <p class="error-message">{{fa-icon "exclamation-triangle"}}{{errorMessage}}</p>
+                {{/if}}
                 <label for="email">Enter Email</label>
-                {{input id="email" class='form-input mb-4' type='email' placeholder='Email' value=email}}
+                {{input id="email" class='form-input mb-4' type='email' value=email}}
                 <label for="password">Password</label>
-                {{input id="password" class='form-input mb-4' type='password' placeholder='Password' value=password}}
+                {{input id="password" class='form-input mb-4' type='password' value=password}}
                 <div class="form-group">
                     <div class="checkbox">
                     <label>
@@ -16,7 +19,7 @@
                     </label>
                     </div>
                 </div>
-                <button class="form-button button-purple" {{action "register"}}>Login</button>
+                <button class="form-button button-purple" {{action "login"}}>Login</button>
                 <p class="text-center">{{#link-to 'login'}}Forgot password?{{/link-to}}</p>
             </div>
         </div>

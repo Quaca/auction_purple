@@ -5,15 +5,18 @@
                 <div class="register-title">
                     <h3>Register</h3>
                 </div>
+                {{#if errorMessage}}
+                    <p class="error-message">{{fa-icon "exclamation-triangle"}}{{errorMessage}}</p>
+                {{/if}}
                 <label for="firstname">First Name</label>
-                {{input id="firstname" class='form-input mb-4' type='text' placeholder='First Name' value=first_name}}
+                {{input id="firstname" class='form-input mb-4' type='text' value=firstName}}
                 <label for="last_name">Last Name</label>
-                {{input id="last_name" class='form-input mb-4' type='text' placeholder='Last Name' value=last_name}}
+                {{input id="last_name" class='form-input mb-4' type='text' value=lastName}}
                 <label for="email">Enter Email</label>
-                {{input id="email" class='form-input mb-4' type='email' placeholder='Email' value=email}}
+                {{input id="email" class='form-input mb-4' type='email' value=email}}
                 <label for="password">Password</label>
-                {{input id="password" class='form-input mb-4' type='password' placeholder='Password' value=password}}
-                <button class="form-button" action="register">Register</button>
+                {{input id="password" class='form-input mb-4' type='password' value=password}}
+                <button class="form-button" {{action "register"}}>Register</button>
                 <p class="text-center">Already have an account? {{#link-to 'login'}}Login{{/link-to}}</p>
             </div>
         </div>

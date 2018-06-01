@@ -9,7 +9,7 @@ export default Service.extend({
             url: '/api/v1/getPopularItems',
             success: function(){
                 console.log('popularItems');
-            }
+            }   
         });
     },
     getLastChance(){

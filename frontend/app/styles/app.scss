@@ -57,6 +57,12 @@ a{
   flex-grow: 0;
 }
 
+#brand{
+  .navbar-brand{ 
+    margin-bottom: 0;
+  }
+}
+
 #items{
   padding-top:0.5em;
   padding-bottom: 0.5em; 
@@ -122,10 +128,14 @@ input[type="search"], textarea, select {
   user-select: none;
   border: 1px solid #8367D8;
   padding: 12px 0px;
-  margin: 8px 0px;
+  margin: 4px 0px;
   font-size: 1rem;
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:hover{
+    background-color:#8367D8;
+  }
 }
 
 .item{
@@ -356,9 +366,18 @@ input[type=text],[type=email],[type=password] {
   border: 2px solid $purple;
   outline: none;
   margin-bottom: 20px;
+
+  &:hover {
+    background-color: $purple;
+  }
 }
 
 .button-purple{
   color: white;
   background-color: $purple;
+}
+
+
+.error-message{
+  color:red;
 }
