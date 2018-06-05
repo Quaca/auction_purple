@@ -380,11 +380,7 @@ input[type=text],[type=email],[type=password] {
   color: black;
   border: 2px solid $purple;
   outline: none;
-<<<<<<< 39fedfeb10c8a0d103b29d447109af597633b637
   margin-bottom: 24px;
-=======
-  margin-bottom: 20px;
->>>>>>> Login(2)
 
   &:hover {
     background-color: $purple;
@@ -400,7 +396,6 @@ input[type=text],[type=email],[type=password] {
 .error-message{
   color:red;
 }
-<<<<<<< 39fedfeb10c8a0d103b29d447109af597633b637
 
 .success-message{
   color: green;
@@ -411,5 +406,3 @@ input[type=text],[type=email],[type=password] {
   margin: 30px 0px;
 
 }
-=======
->>>>>>> Login(2)

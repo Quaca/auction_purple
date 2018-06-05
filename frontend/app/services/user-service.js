@@ -23,6 +23,7 @@ export default Service.extend({
         })
     },
 
+<<<<<<< 78f3a0ad048340d087ba0cb24899289c92758a64
     subscribe(params){
         return $.ajax({
             method: 'POST',
@@ -53,6 +54,8 @@ export default Service.extend({
         })
     },
 
+=======
+>>>>>>> Sessions and cookies
     setCookie(cname,cvalue,exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays*24*60*60*1000));

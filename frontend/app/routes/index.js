@@ -12,7 +12,6 @@ export default Route.extend({
             featureProducts: this.get('itemService').getFeatureProducts()
          })
     },
-
     resetController(controller, isExiting, transition) {
         if(isExiting){
             controller.set('errorMessage', null);

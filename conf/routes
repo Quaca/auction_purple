@@ -12,6 +12,7 @@ POST    /api/v1/changePassword      controllers.UserController.changePassword()
 POST    /api/v1/subscribe           controllers.UserController.subscribe()
 
 
+
 # Creates item
 POST    /api/v1/item                controllers.ItemController.create()
 # Get item

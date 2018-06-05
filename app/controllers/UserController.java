@@ -11,8 +11,11 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.db.jpa.Transactional;
 import play.libs.Json;
+<<<<<<< 78f3a0ad048340d087ba0cb24899289c92758a64
 import play.libs.mailer.Email;
 import play.libs.mailer.MailerClient;
+=======
+>>>>>>> Sessions and cookies
 import play.mvc.Controller;
 import play.mvc.Result;
 import services.UserService;
@@ -34,9 +37,13 @@ public class UserController extends Controller {
         User user = form.get().createAccount();
 
         if(service.register(form.get()).getSuccessful() == true){
+<<<<<<< 78f3a0ad048340d087ba0cb24899289c92758a64
             session("logged", user.toString());
             return ok(Json.toJson(user));
 
+=======
+            return ok(Json.toJson(user));
+>>>>>>> Sessions and cookies
         }
         else {
             return badRequest(service.register(form.get()).getMessage());
@@ -105,7 +112,10 @@ public class UserController extends Controller {
         }
     }
 
+<<<<<<< 78f3a0ad048340d087ba0cb24899289c92758a64
     @Transactional
+=======
+>>>>>>> Sessions and cookies
     public Result getCurrentUser(){
         String sessionUser=session("logged");
         if(sessionUser != null) {
@@ -115,11 +125,17 @@ public class UserController extends Controller {
         }
     }
 
+<<<<<<< 78f3a0ad048340d087ba0cb24899289c92758a64
     @Transactional
+=======
+>>>>>>> Sessions and cookies
     public Result logout(){
         session().clear();
         return ok("Logged out");
     }
+<<<<<<< 78f3a0ad048340d087ba0cb24899289c92758a64
 
 
+=======
+>>>>>>> Sessions and cookies
 }
