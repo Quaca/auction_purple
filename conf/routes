@@ -7,6 +7,7 @@
 POST    /api/v1/register            controllers.UserController.register()
 POST    /api/v1/login               controllers.UserController.login()
 
+
 # Creates item
 POST    /api/v1/item                controllers.ItemController.create()
 # Get item

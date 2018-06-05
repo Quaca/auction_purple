@@ -6,6 +6,7 @@ import models.helpers.RegisterForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.db.jpa.Transactional;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import services.UserService;
@@ -21,9 +22,10 @@ public class UserController extends Controller {
     public Result register() {
 
         Form<RegisterForm> form = formFactory.form(RegisterForm.class).bindFromRequest();
+        User user = form.get().createAccount();
 
         if(service.register(form.get()).getSuccessful() == true){
-            return ok("Radi");
+            return ok(Json.toJson(user));
         }
         else {
             return badRequest(service.register(form.get()).getMessage());
@@ -38,11 +40,26 @@ public class UserController extends Controller {
 
             User user = this.service.login(form.get());
             if(user != null) {
-                return ok("Logged");
+                session("logged", user.toString());
+                return ok(Json.toJson(user));
             }
         }
         return badRequest("Email or password are wrong");
 
 
+    }
+
+    public Result getCurrentUser(){
+        String sessionUser=session("logged");
+        if(sessionUser != null) {
+            return ok(Json.toJson(sessionUser));
+        } else {
+            return ok("Not Logged In");
+        }
+    }
+
+    public Result logout(){
+        session().clear();
+        return ok("Logged out");
     }
 }

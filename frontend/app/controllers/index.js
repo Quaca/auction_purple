@@ -1,18 +1,20 @@
 import Controller from '@ember/controller';
 import Ember from 'ember';
 import { alias } from '@ember/object/computed'
+import baseController from './base-controller';
 //import {service as itemService} from '../services/item-service';
-export default Controller.extend({
+export default baseController.extend({
+
+    userService: Ember.inject.service('user-service'),
+
     popularItems: alias('model.popularItems'),
-    featureProducts: alias('model.featureProducts')
-    // lastChanceItems: alias('model.lastChance'),
-    // newArrivalsItems: alias('model.newArrivals'),
-    
-    
+    featureProducts: alias('model.featureProducts'),
 
-    // actions:{
+    actions:{
+        logout(){          
+            this.logout();
+            this.transitionToRoute('login');
+        }
+    }
 
-    // },
-
-    
 });

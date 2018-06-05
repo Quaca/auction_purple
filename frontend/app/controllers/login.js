@@ -1,21 +1,23 @@
 import Controller from '@ember/controller';
 import Ember from 'ember';
+import baseController from './base-controller';
 
-export default Controller.extend({
+
+export default baseController.extend({
 
     userService: Ember.inject.service('user-service'),
     errorMessage: null,
 
-    didInsertElement() {
-        this.$('input').attr('value', this.get('null'));
-    },
+    // didInsertElement() {
+    //     this.$('input').attr('value', this.get('null'));
+    // },
     
 
     actions:{
 
-        change() {
-            this.onChange();
-        },
+        // change() {
+        //     this.onChange();
+        // },
 
         login(){
             let email = this.get('email');
@@ -27,7 +29,10 @@ export default Controller.extend({
             }
 
             this.get('userService').login(params).then(
-                () => this.transitionToRoute('index')
+                (user) => {
+                    this.get('userService').setCookie('user', JSON.stringify(user));
+                    this.transitionToRoute('index');
+                }
             )
             .catch(
                 (error) => {
@@ -36,5 +41,6 @@ export default Controller.extend({
             );
         }
     }
+
     
 });

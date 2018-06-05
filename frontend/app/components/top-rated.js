@@ -37,13 +37,11 @@ export default Component.extend({
     },        
 
     init(){
-
             this.get('itemService').getPopularItems().then(popularItems => this.set('popularItems', popularItems));
             this.get('itemService').getLastChance().then(lastChance => this.set('lastChance', lastChance));
             this.get('itemService').getNewArrivals().then(newArrivals => this.set('newArrivals', newArrivals));
             
-            this._super(...arguments);
-            
+            this._super(...arguments);     
     },
 
 

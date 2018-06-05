@@ -1,6 +1,5 @@
 import Service from '@ember/service';
 import $ from 'jquery';
-import { get } from '@ember/object';
 
 export default Service.extend({
     getPopularItems(){
