@@ -19,6 +19,7 @@ public class PasswordResetToken {
 
     public static final int EXPIRATION = 60 * 24;
 
+
     @Id
     @GeneratedValue
     @Column(name = "id")
