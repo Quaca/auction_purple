@@ -1,6 +1,9 @@
 package repositories;
 
+import models.Item;
+import models.Subscriber;
 import models.User;
+import models.helpers.PasswordResetToken;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -8,6 +11,7 @@ import play.db.jpa.JPAApi;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.UUID;
 
 @Singleton
 public class UserRepository {
@@ -37,12 +41,29 @@ public class UserRepository {
                 .uniqueResult();
     }
 
-    public boolean checkEmail(String email){
+    public User checkEmail(String email){
         User user = (User)getSession().createCriteria(User.class)
                 .add(Restrictions.eq("email", email))
                 .uniqueResult();
+        return user;
+    }
 
-        return user != null;
+    public void updateUser(User user){
+        getSession().update(user);
+    }
+
+    public User checkToken(String token){
+        PasswordResetToken passwordResetToken = (PasswordResetToken) getSession().createCriteria(PasswordResetToken.class)
+                .add(Restrictions.eq("token", token))
+                .uniqueResult();
+        return passwordResetToken.getUser();
+    }
+
+    public void deleteToken(String token){
+        PasswordResetToken passwordResetToken =(PasswordResetToken) getSession().createCriteria(PasswordResetToken.class)
+                .add(Restrictions.eq("token", token))
+                .uniqueResult();
+        getSession().delete(passwordResetToken);
     }
 
     public User giveUser(String email){
@@ -51,5 +72,12 @@ public class UserRepository {
                 .uniqueResult();
     }
 
+    public void createToken(PasswordResetToken token){
+        getSession().persist(token);
+    }
+
+    public void createSubscriber(Subscriber subscriber){
+        api.em().persist(subscriber);
+    }
 
 }

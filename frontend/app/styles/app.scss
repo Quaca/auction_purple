@@ -29,6 +29,10 @@ $purple: #8367d8;
   border-bottom: 2px solid $light-grey;
 }
 
+.mb-8{
+  margin-bottom: 8rem;
+}
+
 a{
   color: #4a90e2;
   text-decoration: none;
@@ -101,6 +105,10 @@ a{
 
 .input-group{
   border: 2px solid $light-grey;
+  &:focus{
+  border: 2px solid $purple;
+    
+  }
 }
 #btn-search{
   background-color: transparent;
@@ -317,6 +325,9 @@ input[type=text],[type=email],[type=password] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  &:focus{
+    border: solid 1 $purple;
+  }
 }
 
 .footer-wrap{
@@ -330,7 +341,7 @@ input[type=text],[type=email],[type=password] {
   } 
 }
 
-//-----------------------Register and Login---------------------
+//-----------------------Register, login and forgot password---------------------
 
 .register-title{
   text-align: center;
@@ -353,7 +364,11 @@ input[type=text],[type=email],[type=password] {
   font-weight: 600;
   color: #131d24;
   resize: vertical;
+  &:focus{
+    border: solid 1px $purple;
+  }
 }
+
 
 .form-button {
   width: 100%;
@@ -365,7 +380,7 @@ input[type=text],[type=email],[type=password] {
   color: black;
   border: 2px solid $purple;
   outline: none;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 
   &:hover {
     background-color: $purple;
@@ -380,4 +395,14 @@ input[type=text],[type=email],[type=password] {
 
 .error-message{
   color:red;
+}
+
+.success-message{
+  color: green;
+}
+
+.forgot-password-text{
+  font-size: 12px;
+  margin: 30px 0px;
+
 }

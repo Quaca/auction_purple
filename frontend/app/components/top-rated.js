@@ -5,6 +5,7 @@ import { alias } from '@ember/object/computed';
 export default Component.extend({
 
     itemService: Ember.inject.service('item-service'),
+    userService: Ember.inject.service('userService'),
 
 
     classNames:['mt-5'],

@@ -13,17 +13,10 @@
                 <label for="password">Password</label>
                 {{input id="password" class='form-input mb-4' type='password' value=password}}
                 {{#if currentUser}}
-          <a style="color: black" {{action 'logout'}}>Logout {{currentUser.email}}</a>
-        {{/if}}
-                <div class="form-group">
-                    <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="mr-2" name="remember" value="remember_me">Remember me
-                    </label>
-                    </div>
-                </div>
+                    <a style="color: black" {{action 'logout'}}>Logout {{currentUser.email}}</a>
+                {{/if}}
                 <button class="form-button button-purple" {{action "login"}}>Login</button>
-                <p class="text-center">{{#link-to 'login'}}Forgot password?{{/link-to}}</p>
+                <p class="text-center">{{#link-to 'forgot-password'}}Forgot password?{{/link-to}}</p>
             </div>
         </div>
     </div>

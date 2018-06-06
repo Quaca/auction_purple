@@ -1,8 +1,12 @@
 package services;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import models.Item;
+import models.Subscriber;
 import models.User;
 import models.helpers.CustomError;
 import models.helpers.LoginForm;
+import models.helpers.PasswordResetToken;
 import models.helpers.RegisterForm;
 import repositories.UserRepository;
 
@@ -21,7 +25,7 @@ public class UserService {
         CustomError customError = new CustomError();
 
         User newUser = registerForm.createAccount();
-        if(repository.checkEmail(newUser.getEmail()) == true){
+        if(repository.checkEmail(newUser.getEmail()) != null){
             customError.setSuccessful(false);
             customError.setMessage("Email already exists");
         }
@@ -52,12 +56,36 @@ public class UserService {
 
     }
 
-
-
     private boolean validateEmail(String emailStr)
     {
         Matcher matcher = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(emailStr);
         return matcher.find();
     }
 
+    public Subscriber addSubscriber(Subscriber subscriber){
+        repository.createSubscriber(subscriber);
+        return subscriber;
+    }
+
+    public User findUserByEmail(String email){
+        return repository.checkEmail(email);
+    }
+    public User checkEmail(JsonNode jsonNode){
+        return repository.checkEmail(jsonNode.get("email").textValue());
+    }
+
+    public User checkToken(String token){
+        return repository.checkToken(token);
+    }
+
+    public User changePassword(User user, String token){
+        repository.updateUser(user);
+        repository.deleteToken(token);
+        return user;
+    }
+
+    public PasswordResetToken addToken(PasswordResetToken token){
+        repository.createToken(token);
+        return token;
+    }
 }

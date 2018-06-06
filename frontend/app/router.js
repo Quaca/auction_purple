@@ -13,6 +13,8 @@ Router.map(function() {
   this.route('terms-and-conditions');
   this.route('register');
   this.route('login');
+  this.route('forgot-password');
+  this.route('change-password');
 });
 //{path: 'item/:item_id'}
 export default Router;

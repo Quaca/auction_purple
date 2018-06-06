@@ -9,6 +9,7 @@ export default baseController.extend({
 
     popularItems: alias('model.popularItems'),
     featureProducts: alias('model.featureProducts'),
+    landingItem: alias('model.landingItem'),
 
     actions:{
         logout(){          

@@ -2,6 +2,14 @@ import Service from '@ember/service';
 import $ from 'jquery';
 
 export default Service.extend({
+
+    getLandingItem(){
+        return $.ajax({
+            method: 'GET',
+            url: '/api/v1/getLandingItem',
+        })
+    },
+
     getPopularItems(){
         return $.ajax({
             method: 'GET',

@@ -29,7 +29,14 @@ export default Controller.extend({
             }
 
             this.get('userService').register(params).then(
-                () => this.transitionToRoute('index')
+                () => {
+                    this.get('userService').login(params).then(
+                        (user) => {
+                            this.get('userService').setCookie('user', JSON.stringify(user));
+                            this.transitionToRoute('index');
+                        }
+                    )
+                }
             )
             .catch(
                 (error) => {

@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import Ember from 'ember';  
 import $ from 'jquery';
 
 export default Service.extend({
@@ -19,6 +20,36 @@ export default Service.extend({
             method: 'POST',
             url: '/api/v1/login',
             data:params
+        })
+    },
+
+    subscribe(params){
+        return $.ajax({
+            method: 'POST',
+            url: '/api/v1/subscribe',
+            cache: false,
+            contentType: 'application/json',
+            data:params ? JSON.stringify(params) : null,
+        })
+    },
+
+    forgotPassword(params){
+        return $.ajax({
+            method: 'POST',
+            url:'/api/v1/generateToken',
+            cache: false,
+            contentType: 'application/json',
+            data:params ? JSON.stringify(params) : null,
+        })
+    },
+
+    changePassword(params){
+        return $.ajax({
+            method:'POST',
+            url:'/api/v1/changePassword',
+            cache: false,
+            contentType: 'application/json',
+            data:params ? JSON.stringify(params) : null,
         })
     },
 

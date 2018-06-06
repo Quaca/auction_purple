@@ -35,6 +35,8 @@ public class ItemService {
         return repository.delete(id);
     }
 
+    public Item getLandingItem(){return repository.getLandingItem();}
+
     public List<Item> getPopularItems(){
         return repository.getPopularItems();
     }

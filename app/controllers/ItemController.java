@@ -67,6 +67,12 @@ public class ItemController extends Controller {
     }
 
     @Transactional
+    public Result getLandingItem(){
+        JsonNode jsonObject = Json.toJson(service.getLandingItem());
+        return ok(jsonObject);
+    }
+
+    @Transactional
     public Result getPopularItems(){
         JsonNode jsonObject = Json.toJson(service.getPopularItems());
         return ok(jsonObject);

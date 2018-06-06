@@ -10,9 +10,9 @@
         <div class="collapse navbar-collapse" id="nav-items">
             <div class="my-2">{{search-bar}}</div>
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Shop</a>
-                <a class="nav-item nav-link" href="#">My account</a>
+                {{#link-to 'index' class="nav-item nav-link active" }}Home{{/link-to}}
+                {{#link-to 'index' class="nav-item nav-link" }}Shop{{/link-to}}
+                {{#link-to 'index' class="nav-item nav-link" }}My account{{/link-to}}
             </div>  
         </div>
     </div>

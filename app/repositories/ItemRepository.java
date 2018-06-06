@@ -68,6 +68,10 @@ public class ItemRepository {
         return true;
     }
 
+    public Item getLandingItem(){
+        return (Item) setCriteria().addOrder(Order.desc("popularity")).setMaxResults(1).uniqueResult();
+    }
+
     public List<Item> getPopularItems(){
 
         List<Item> popularItems = getSession().createCriteria(Item.class)

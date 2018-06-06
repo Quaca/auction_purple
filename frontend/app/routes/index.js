@@ -6,12 +6,13 @@ export default Route.extend({
     userService: Ember.inject.service('user-service'),
 
     model(){
-
         return Ember.RSVP.hash({
+            landingItem: this.get('itemService').getLandingItem(),
             popularItems: this.get('itemService').getPopularItems(),
             featureProducts: this.get('itemService').getFeatureProducts()
          })
     },
+
     resetController(controller, isExiting, transition) {
         if(isExiting){
             controller.set('errorMessage', null);
@@ -22,8 +23,9 @@ export default Route.extend({
         this._super(...arguments);
     },
 
-    setupController(controller) {
-        this._super(controller);
+    setupController(controller, model) {
+        this._super(controller, model);
+        controller.set('model', model);
         const cookie = this.get('userService').getCookie('user');        
         if(cookie){
             controller.set('currentUser',JSON.parse(cookie));
