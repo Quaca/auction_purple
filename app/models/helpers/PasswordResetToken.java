@@ -63,4 +63,5 @@ public class PasswordResetToken {
     public void setDate(Date ate) {
         this.date = date;
     }
+
 }
