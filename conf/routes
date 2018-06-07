@@ -34,11 +34,8 @@ DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
 
 
 # EMBER PASSTHROUGH ROUTES ---------------------------------------------------------------------------------------------
-
-
 GET     /assets/*file                                       controllers.Assets.at(path="/public/assets", file)
 GET     /fonts/*file                                        controllers.Assets.at(path="/public/fonts", file)
 GET     /                                                   controllers.HomeController.index(slug="")
 GET     /*slug                                              controllers.HomeController.index(slug)
-
 
