@@ -4,7 +4,7 @@ export default Component.extend({
     userService: Ember.inject.service('user-service'),
     successMessage: null,
 
-    init() {
+    didInsertElement() {
         this._super(...arguments);
         this.set('successMessage', null);
     },
