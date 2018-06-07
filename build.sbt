@@ -7,6 +7,8 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava)
 scalaVersion := "2.11.11"
 PlayKeys.externalizeResources := false
 
+libraryDependencies += guice
+
 libraryDependencies += javaJdbc
 libraryDependencies += cache
 libraryDependencies += javaWs
