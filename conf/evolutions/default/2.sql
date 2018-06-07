@@ -77,6 +77,7 @@ INSERT INTO item(name, user_id, subcategory_id, popularity, description, color, 
   'blue', null, 45.00, 120.00, '2016-05-21 06:40:50', '2018-10-10 09:30:20', 'new');
 
 
+
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/golf-7.jpg' FROM item where name = 'Golf7';
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/house.jpg' FROM item where name = 'House for big family';
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/komp.png' FROM item where name = 'Desktop computer Dell';
