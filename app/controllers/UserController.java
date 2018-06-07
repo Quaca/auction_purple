@@ -17,10 +17,6 @@ import play.mvc.Result;
 import services.UserService;
 
 import javax.inject.Inject;
-import javax.persistence.criteria.From;
-import java.io.Console;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -103,6 +99,7 @@ public class UserController extends Controller {
         return created();
     }
 
+    @Transactional
     public Result getCurrentUser(){
         String sessionUser=session("logged");
         if(sessionUser != null) {
@@ -112,6 +109,7 @@ public class UserController extends Controller {
         }
     }
 
+    @Transactional
     public Result logout(){
         session().clear();
         return ok("Logged out");
