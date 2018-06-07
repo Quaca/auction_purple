@@ -34,6 +34,7 @@ public class UserController extends Controller {
         User user = form.get().createAccount();
 
         if(service.register(form.get()).getSuccessful() == true){
+            session("logged", user.toString());
             return ok(Json.toJson(user));
         }
         else {
