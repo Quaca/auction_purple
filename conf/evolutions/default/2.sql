@@ -92,6 +92,5 @@ INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa20
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/women_bag.jpg' FROM item where name = 'Women bag';
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/women_t-shirt.jpg' FROM item where name = 'Women t-shirt';
 
-
 # --- !Downs
 TRUNCATE "user", category, subcategory, item, item_photo CASCADE;
