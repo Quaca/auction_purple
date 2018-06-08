@@ -14,12 +14,16 @@ export default Component.extend({
             }
             this.get('userService').subscribe(params).then(
                 () => {
-                    this.set('successMessage', "Successfully subscribed");
+                    this.set('successMessage', "Successfully subscribed");                    
+                    this.set('errorMessage', null);
+
                 }
             )
             .catch(
                 (error) => {
-                    this.set('errorMessage', error.responseText)
+                    this.set('errorMessage', error.responseText);
+                    this.set('successMessage', null);
+                    
                 }
             );
         }
