@@ -30,7 +30,9 @@ export default Component.extend({
             )
             .catch(
                 (error) => {
-                    this.set('errorMessage', error.responseText)
+                    this.set('errorMessage', error.responseText);
+                    this.set('successMessage', null);
+                    
                 }
             );
         }
