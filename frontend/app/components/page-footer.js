@@ -6,7 +6,6 @@ export default Component.extend({
     userService: Ember.inject.service('user-service'),
     successMessage: null,
     errorMessage: null,
-    // flashMessages: inject(),
     
 
     actions:{
@@ -31,10 +30,7 @@ export default Component.extend({
             )
             .catch(
                 (error) => {
-                    this.set('errorMessage', error.responseText);
-                    this.set('successMessage', null);
-                    this.set('email2', null);
-                    
+                    this.set('errorMessage', error.responseText)
                 }
             );
         }

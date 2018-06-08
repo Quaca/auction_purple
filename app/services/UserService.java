@@ -76,7 +76,6 @@ public class UserService {
         else {
             return null;
         }
-
     }
 
     public User findUserByEmail(String email){

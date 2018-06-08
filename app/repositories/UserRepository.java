@@ -95,4 +95,5 @@ public class UserRepository {
         getSession().delete(subscriber1);
     }
 
+
 }
