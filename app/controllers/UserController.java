@@ -131,7 +131,7 @@ public class UserController extends Controller {
                 .setFrom("auction.purple@gmail.com")
                 .addTo(receivingEmail)
                 .setBodyText("Hello")
-        .setBodyHtml("<html><body><p>This is your token for changing password</p><p><a href='http://localhost:4200/change-password?key="+token+"'>"+token+"</a></p></body></html>");
+        .setBodyHtml("<html><body><p>This is your token for changing password</p><p><a href='https://protected-savannah-98705.herokuapp.com/#/change-password?key="+token+"'>"+token+"</a></p></body></html>");
         mailerClient.send(email);
     }
 }
