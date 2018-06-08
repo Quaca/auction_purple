@@ -12,9 +12,9 @@
                 {{input id="email" class='form-input mb-4' type='email' value=email}}
                 <label for="password">Password</label>
                 {{input id="password" class='form-input mb-4' type='password' value=password}}
-                {{#if currentUser}}
+                {{!-- {{#if currentUser}}
                     <a style="color: black" {{action 'logout'}}>Logout {{currentUser.email}}</a>
-                {{/if}}
+                {{/if}} --}}
                 <button class="form-button button-purple" {{action "login"}}>Login</button>
                 <p class="text-center">{{#link-to 'forgot-password'}}Forgot password?{{/link-to}}</p>
             </div>

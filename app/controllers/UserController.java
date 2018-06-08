@@ -96,8 +96,12 @@ public class UserController extends Controller {
     @Transactional
     public Result subscribe(){
         JsonNode json = request().body().asJson();
-        Subscriber subscriber = service.addSubscriber(Json.fromJson(json, Subscriber.class));
-        return created();
+        if(service.addSubscriber(Json.fromJson(json, Subscriber.class)) != null){
+            return created();
+        }
+        else {
+            return badRequest("Email already subscribed");
+        }
     }
 
     @Transactional

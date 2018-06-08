@@ -63,8 +63,13 @@ public class UserService {
     }
 
     public Subscriber addSubscriber(Subscriber subscriber){
-        repository.createSubscriber(subscriber);
-        return subscriber;
+        if(repository.checkSubscriber(subscriber) == null) {
+            repository.createSubscriber(subscriber);
+            return subscriber;
+        }
+        else {
+            return null;
+        }
     }
 
     public User findUserByEmail(String email){

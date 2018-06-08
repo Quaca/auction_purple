@@ -3,15 +3,12 @@ import Component from '@ember/component';
 export default Component.extend({
     userService: Ember.inject.service('user-service'),
     successMessage: null,
-
-    didInsertElement() {
-        this._super(...arguments);
-        this.set('successMessage', null);
-    },
+    errorMessage: null,
+    
 
     actions:{
         subscribe(){
-            let email = this.get('email');
+            let email = this.get('email2');
             let params = {
                 "email": email
             }
@@ -21,6 +18,9 @@ export default Component.extend({
                 }
             )
             .catch(
+                (error) => {
+                    this.set('errorMessage', error.responseText)
+                }
             );
         }
     }

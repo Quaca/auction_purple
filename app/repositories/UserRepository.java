@@ -80,4 +80,19 @@ public class UserRepository {
         api.em().persist(subscriber);
     }
 
+    public Subscriber checkSubscriber(Subscriber subscriber){
+        Subscriber subscriber1 = (Subscriber) getSession().createCriteria(Subscriber.class)
+                .add(Restrictions.eq("email", subscriber.getEmail()))
+                .uniqueResult();
+        return subscriber1;
+    }
+    public void deleteSubscriber(Subscriber subscriber){
+        Subscriber subscriber1 = (Subscriber) getSession().createCriteria(Subscriber.class)
+                .add(Restrictions.eq("email", subscriber.getEmail()))
+                .uniqueResult();
+        getSession().delete(subscriber1);
+    }
+
+
+
 }
