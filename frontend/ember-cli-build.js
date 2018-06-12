@@ -9,13 +9,16 @@ module.exports = function(defaults) {
 
   app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
   app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
+  app.import(app.bowerDirectory + '/sweetalert/dist/sweetalert.min.js');
+  app.import(app.bowerDirectory + '/sweetalert/dist/sweetalert.css');
+  
   //app.import('bower_components/js-cookie/src/js-cookie'); 
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
   // If you need to use different assets in different
   // environments, specify an object as the first parameter. That
-  // object's keys should be the environment name and the values
+  // object's keys should be tshe environment name and the values
   // should be the asset to use in that environment.
   //
   // If the library that you are including contains AMD or ES6
