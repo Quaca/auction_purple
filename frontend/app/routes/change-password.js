@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
+import Base from './base-route';
 
-export default Route.extend({
-
-
+export default Base.extend({
     
 });

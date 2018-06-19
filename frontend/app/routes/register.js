@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
+import Base from './base-route';
 
-export default Route.extend({
+export default Base.extend({
     resetController(controller, isExiting, transition) {
         if(isExiting){
             controller.set('errorMessage', null);
@@ -10,5 +11,5 @@ export default Route.extend({
             controller.set('lastName', null);
             
         }
-    }
+    },
 });

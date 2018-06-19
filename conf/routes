@@ -24,16 +24,16 @@ GET     /api/v1/getLastChance       controllers.ItemController.getLastChance()
 GET     /api/v1/getNewArrivals      controllers.ItemController.getNewArrivals()
 GET     /api/v1/getFeatureProducts  controllers.ItemController.getFeatureProducts()
 
+
+#Bidding
+POST    /api/v1/postBid             controllers.BidController.postBid()
+POST    /api/v1/getBid              controllers.BidController.getMaxBid()
+
 # Update item
 PUT     /api/v1/item                controllers.ItemController.update()
 
 # Delete item
 DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
-
-
-GET     /api/v1/amar                controllers.Test.sendSimpleEmail()
-
-GET     /api/v1/almir               controllers.Test2.sendEmail()
 
 
 
