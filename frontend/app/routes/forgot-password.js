@@ -16,5 +16,10 @@ export default Route.extend({
         this.set('successMessage', null);
         this.set('errorMessage', null);
         
+    },
+
+    activate: function() {
+        this._super(...arguments);
+        window.scrollTo(0,0);
     }
 });

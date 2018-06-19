@@ -25,7 +25,7 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private models.User user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "subcategory_id", referencedColumnName = "id")
@@ -72,11 +72,11 @@ public class Item {
         this.id = id;
     }
 
-    public models.User getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(models.User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

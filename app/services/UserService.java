@@ -61,7 +61,6 @@ public class UserService {
         return repository.get(id);
     }
 
-
     private boolean validateEmail(String emailStr)
     {
         Matcher matcher = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(emailStr);

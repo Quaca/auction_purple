@@ -31,6 +31,12 @@ export default baseController.extend({
             this.get('userService').login(params).then(
                 (user) => {
                     this.get('userService').setCookie('user', JSON.stringify(user));
+                    swal({
+                        title: "Success",
+                        text: "You successfully logged in",
+                        type: "success",
+                        button: "Aww yiss!",
+                      });
                     this.transitionToRoute('index');
                 }
             )

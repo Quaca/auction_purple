@@ -62,7 +62,6 @@ public class UserController extends Controller {
     public Result generateToken(){
 
         JsonNode json = request().body().asJson();
-        System.out.print(json);
         if (json == null){
             return badRequest("Please enter email before sending");
         }
@@ -75,7 +74,7 @@ public class UserController extends Controller {
         Date date = new Date();
         token.setUser(user);
         token.setToken(UUID.randomUUID().toString());
-        token.setDate((date));
+        token.setDate(date);
         service.addToken(token);
 
         service.sendEmail(user.getEmail(), token.getToken());

@@ -15,10 +15,10 @@
                     <h3 class="pb-2 border-d-2">Feature Collection</h3>
                 </div>
             </div>
-            <div class="row juctify-content-between">
+            <div class="row justify-content-between">
                 {{#each popularItems as |itemUnit|}}
                         <div class="col-lg-4 my-3">
-                            {{#link-to 'item'}}
+                            {{#link-to 'item' itemUnit.id}}
                             {{feature-collection item=itemUnit}}
                             {{/link-to}}
                         </div>    
@@ -31,10 +31,10 @@
                     <h3 class="pb-2 border-d-2">Feature Products</h3>
                 </div>
             </div>
-            <div class="row juctify-content-between">
+            <div class="row justify-content-between">
                 {{#each featureProducts as |itemUnit|}}
                         <div class="col-lg-3 my-3">
-                            {{#link-to 'item'}}
+                            {{#link-to 'item' itemUnit.id}}
                             {{feature-collection item=itemUnit}}
                             {{/link-to}}
                         </div>    

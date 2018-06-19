@@ -11,7 +11,7 @@
     {{#if button1}}
                 {{#each newArrivals as |itemUnit|}}
                     <div class="col-lg-3 col-md-6 col-xs-12 my-3">
-                        {{#link-to 'item'}}
+                        {{#link-to 'item' itemUnit.id}}
                             {{feature-collection item=itemUnit}}
                         {{/link-to}}
                     </div>
@@ -20,7 +20,7 @@
     {{#if button2}}
                 {{#each newArrivals as |itemUnit|}}
                     <div class="col-lg-3 col-md-6 col-xs-12 my-3">
-                        {{#link-to 'item'}}
+                        {{#link-to 'item' itemUnit.id}}
                             {{feature-collection item=itemUnit}}
                         {{/link-to}}
                     </div>
@@ -29,7 +29,7 @@
     {{#if button3}}
                 {{#each lastChance as |itemUnit|}}
                     <div class="col-lg-3 col-md-6 col-xs-12 my-3">
-                        {{#link-to 'item'}}
+                        {{#link-to 'item' itemUnit.id}}
                             {{feature-collection item=itemUnit}}
                         {{/link-to}}
                     </div>

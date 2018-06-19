@@ -1,7 +1,8 @@
 import Route from '@ember/routing/route';
 import Ember from 'ember';
+import Base from './base-route';
 
-export default Route.extend({
+export default Base.extend({
     itemService: Ember.inject.service('item-service'),
     userService: Ember.inject.service('user-service'),
 

@@ -18,23 +18,24 @@ export default Component.extend({
             // get(this, 'flashMessages').success('Success!')            
             this.get('userService').subscribe(params).then(
                 () => {
-                    this.set('successMessage', "Successfully subscribed");                    
-                    this.set('errorMessage', null); 
                     this.set('email2', null);
-                    // swal({
-                    //     title: "Good job!",
-                    //     text: "You clicked the button!",
-                    //     icon: "success",
-                    //     button: "Aww yiss!",
-                    //   });
+                    swal({
+                        title: "Success",
+                        text: "You successfully subscribed to our newsletter",
+                        type: "success",
+                        button: "Aww yiss!",
+                      });
                     }
             )
             .catch(
                 (error) => {
-                    this.set('errorMessage', error.responseText);
-                    this.set('successMessage', null);
                     this.set('email2', null);
-                    
+                    swal({
+                        title: "Error",
+                        text: "You are already subscribed",
+                        type: "error",
+                        button: "Oh noez!",
+                      });
                 }
             );
         }
