@@ -37,15 +37,12 @@
     <div class="col-lg-8 item">
         <div class="row">
             <div class="item-description col-lg-6">
-                <h1>Running shoes</h1>
-                <h5>Start from - $240.00</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Aperiam optio vitae, quos animi, possimus officia iusto 
-                    maiores enim non reiciendis sint rerum doloremque odio debitis! 
-                    Eum dolorem sequi unde iste.</p>
+                <h1>{{model.name}}</h1>
+                <h5>Start from - ${{model.startingPrice}}</h5>
+                <p>{{model.description}}</p>
             </div>
             <div class="item-image col-lg-6">
-                <img src="assets/images/shoes.png" alt="/" width="300px">
+                <img src="{{model.photos.[0].photoPath}}" alt="/" width="300px">
             </div>
         </div>
         <div class="row">

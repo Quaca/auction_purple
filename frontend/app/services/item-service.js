@@ -1,15 +1,22 @@
 import Service from '@ember/service';
 import $ from 'jquery';
-import { get } from '@ember/object';
 
 export default Service.extend({
+
+    getLandingItem(){
+        return $.ajax({
+            method: 'GET',
+            url: '/api/v1/getLandingItem',
+        })
+    },
+
     getPopularItems(){
         return $.ajax({
             method: 'GET',
             url: '/api/v1/getPopularItems',
             success: function(){
                 console.log('popularItems');
-            }
+            }   
         });
     },
     getLastChance(){

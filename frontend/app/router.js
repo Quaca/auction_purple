@@ -11,6 +11,10 @@ Router.map(function() {
   this.route('about');
   this.route('privacy-and-policy');
   this.route('terms-and-conditions');
+  this.route('register');
+  this.route('login');
+  this.route('forgot-password');
+  this.route('change-password');
 });
 //{path: 'item/:item_id'}
 export default Router;

@@ -10,7 +10,7 @@
 <div class="row tab-content">
     {{#if button1}}
                 {{#each newArrivals as |itemUnit|}}
-                    <div class="col-lg-3 my-3">
+                    <div class="col-lg-3 col-md-6 col-xs-12 my-3">
                         {{#link-to 'item'}}
                             {{feature-collection item=itemUnit}}
                         {{/link-to}}
@@ -19,7 +19,7 @@
     {{/if}}
     {{#if button2}}
                 {{#each newArrivals as |itemUnit|}}
-                    <div class="col-lg-3 my-3">
+                    <div class="col-lg-3 col-md-6 col-xs-12 my-3">
                         {{#link-to 'item'}}
                             {{feature-collection item=itemUnit}}
                         {{/link-to}}
@@ -28,7 +28,7 @@
     {{/if}}
     {{#if button3}}
                 {{#each lastChance as |itemUnit|}}
-                    <div class="col-lg-3 my-3">
+                    <div class="col-lg-3 col-md-6 col-xs-12 my-3">
                         {{#link-to 'item'}}
                             {{feature-collection item=itemUnit}}
                         {{/link-to}}

@@ -1,11 +1,14 @@
 <main>
     <div id="landing-item" class="bg-grey">
         <div class="container">
-            {{landing-item}}
+            {{landing-item model=landingItem}}
         </div>
     </div>
     {{extended-navbar}}
     <div class="container">
+        {{#if currentUser}}
+          <a style="color: black" {{action 'logout'}}>Logout {{currentUser.email}}</a>
+        {{/if}}
         <div id="feature-collection" class="mt-5">
             <div class="row">
                 <div class="col-sm-12">

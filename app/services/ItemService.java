@@ -1,13 +1,11 @@
 package services;
 
-import com.amazonaws.services.dynamodbv2.xspec.S;
 import models.Item;
 import repositories.ItemRepository;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 @Singleton
@@ -36,6 +34,8 @@ public class ItemService {
     public boolean delete(UUID id){
         return repository.delete(id);
     }
+
+    public Item getLandingItem(){return repository.getLandingItem();}
 
     public List<Item> getPopularItems(){
         return repository.getPopularItems();

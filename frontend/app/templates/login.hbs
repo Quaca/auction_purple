@@ -1,0 +1,23 @@
+<main>
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-sm-12 col-md-6 offset-md-3 border-1">
+                <div class="register-title">
+                    <h3>Login</h3>
+                </div>
+                {{#if errorMessage}}
+                    <p class="error-message">{{fa-icon "exclamation-triangle"}}{{errorMessage}}</p>
+                {{/if}}
+                <label for="email">Enter Email</label>
+                {{input id="email" class='form-input mb-4' type='email' value=email}}
+                <label for="password">Password</label>
+                {{input id="password" class='form-input mb-4' type='password' value=password}}
+                {{!-- {{#if currentUser}}
+                    <a style="color: black" {{action 'logout'}}>Logout {{currentUser.email}}</a>
+                {{/if}} --}}
+                <button class="form-button button-purple" {{action "login"}}>Login</button>
+                <p class="text-center">{{#link-to 'forgot-password'}}Forgot password?{{/link-to}}</p>
+            </div>
+        </div>
+    </div>
+</main>
