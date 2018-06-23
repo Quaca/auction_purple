@@ -5,7 +5,10 @@ import models.Subscriber;
 import models.User;
 import models.helpers.LoginForm;
 import models.helpers.PasswordResetToken;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 34b68903fde89b4ba428e748aed91f84175ea0ba
 import models.helpers.RegisterForm;
 import play.data.Form;
 import play.data.FormFactory;
@@ -20,7 +23,6 @@ import services.UserService;
 import javax.inject.Inject;
 import java.util.Date;
 import java.util.UUID;
-
 
 public class UserController extends Controller {
 
@@ -78,6 +80,7 @@ public class UserController extends Controller {
 
         service.sendEmail(user.getEmail(), token.getToken());
 
+
         return ok();
     }
 
@@ -119,6 +122,4 @@ public class UserController extends Controller {
         session().clear();
         return ok("Logged out");
     }
-
-
 }

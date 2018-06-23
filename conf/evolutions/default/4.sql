@@ -7,7 +7,7 @@ CREATE TABLE if not exists tokens(
   date timestamp,
   CONSTRAINT user_tokens_id FOREIGN KEY (user_id) references "user"(id) ON UPDATE CASCADE
 
-);
+
 
 # --- !Downs
 ALTER TABLE tokens DROP CONSTRAINT user_tokens_id;

@@ -72,8 +72,6 @@ public class UserRepository {
                 .add(Restrictions.eq("token", token))
                 .uniqueResult();
         getSession().delete(passwordResetToken);
-
-
     }
 
     public User giveUser(String email){
@@ -108,6 +106,5 @@ public class UserRepository {
         Criteria bidCriteria = criteria.createCriteria("item");
 
     }
-
 
 }

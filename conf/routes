@@ -12,13 +12,12 @@ POST    /api/v1/changePassword      controllers.UserController.changePassword()
 POST    /api/v1/subscribe           controllers.UserController.subscribe()
 
 
+# Creates item
 POST    /api/v1/item                controllers.ItemController.create()
 # Get item
 GET     /api/v1/item/:id            controllers.ItemController.retrieve(id:String)
-
 # List all items
 GET     /api/v1/item                controllers.ItemController.listItems()
-
 # Get popular items
 GET     /api/v1/getLandingItem      controllers.ItemController.getLandingItem()
 GET     /api/v1/getPopularItems     controllers.ItemController.getPopularItems()
@@ -37,7 +36,10 @@ PUT     /api/v1/item                controllers.ItemController.update()
 # Delete item
 DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
 
+
+
 # EMBER PASSTHROUGH ROUTES ---------------------------------------------------------------------------------------------
+
 GET     /assets/*file                                       controllers.Assets.at(path="/public/assets", file)
 GET     /fonts/*file                                        controllers.Assets.at(path="/public/fonts", file)
 GET     /                                                   controllers.HomeController.index(slug="")
