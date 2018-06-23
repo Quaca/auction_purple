@@ -5,7 +5,7 @@ CREATE TABLE if not exists tokens(
   user_id UUID,
   token text,
   date timestamp,
-  CONSTRAINT user_tokens_id FOREIGN KEY (user_id) references "user"(id) ON UPDATE CASCADE ON DELETE RESTRICT
+  CONSTRAINT user_tokens_id FOREIGN KEY (user_id) references "user"(id) ON UPDATE CASCADE
 );
 
 # --- !Downs

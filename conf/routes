@@ -31,12 +31,6 @@ PUT     /api/v1/item                controllers.ItemController.update()
 DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
 
 
-GET     /api/v1/amar                controllers.Test.sendSimpleEmail()
-
-GET     /api/v1/almir               controllers.Test2.sendEmail()
-
-
-
 # EMBER PASSTHROUGH ROUTES ---------------------------------------------------------------------------------------------
 
 GET     /assets/*file                                       controllers.Assets.at(path="/public/assets", file)

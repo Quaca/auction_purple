@@ -27,7 +27,7 @@ export default Component.extend({
                     //     icon: "success",
                     //     button: "Aww yiss!",
                     //   });
-                    // }
+                    }
             )
             .catch(
                 (error) => {

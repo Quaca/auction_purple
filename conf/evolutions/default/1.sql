@@ -123,7 +123,7 @@ DROP table if exists paypal;
 DROP table if exists credit_card;
 DROP table if exists payment;
 DROP table if exists subcategory;
-DROP table if exists "user";
+DROP CASCADE table if exists "user";
 DROP table if exists item;
 DROP TABLE if exists bidding;
 DROP TABLE if exists "order";

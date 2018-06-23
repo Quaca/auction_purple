@@ -24,7 +24,6 @@ public class UserController extends Controller {
 
     @Inject public UserService service;
     @Inject private FormFactory formFactory;
-    @Inject MailerClient mailerClient;
 
 
     @Transactional
@@ -76,7 +75,7 @@ public class UserController extends Controller {
         token.setDate((date));
         service.addToken(token);
 
-        sendEmail(user.getEmail(), token.getToken());
+        service.sendEmail(user.getEmail(), token.getToken());
 
         return ok();
     }
@@ -121,14 +120,5 @@ public class UserController extends Controller {
     }
 
 
-    private void sendEmail(String receivingEmail, String token) {
-        String cid = "1234";
-        Email email = new Email()
-                .setSubject("Reset password")
-                .setFrom("auction.purple@gmail.com")
-                .addTo(receivingEmail)
-                .setBodyText("Hello")
-        .setBodyHtml("<html><body><p>This is your token for changing password</p><p><a href='https://protected-savannah-98705.herokuapp.com/#/change-password?key="+token+"'>"+token+"</a></p></body></html>");
-        mailerClient.send(email);
-    }
+
 }
