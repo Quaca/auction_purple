@@ -3,6 +3,8 @@ import Component from '@ember/component';
 export default Component.extend({
     bidService: Ember.inject.service('bid-service'),
     
+    // currentPath: getOwner(this).lookup('controller:application').currentPath,
+    // currentPath.get('controller').set('model', data)
 
     actions:{
         postBid(){
@@ -16,27 +18,27 @@ export default Component.extend({
                 });
             }
             else{
-                let user_id = this.user.id;
                 let item_id = this.item.id;
                 let bid = this.get('bid');
                 
     
                 let params = {
-                    "user_id": user_id,
                     "item_id": item_id,
                     "bid_price": bid
                 }
     
                 this.get('bidService').postBid(params).then(
-                    () => {
+                    (data) => {
                         swal({
                             title:"",
                             text: "Posted",
                             type: "success",
                             button: "Aww yiss!",
                         });
+                        
+                }
 
-                }).catch(() => {
+            ).catch(() => {
                     swal({
                         title:"",
                         text: "Enter a litle bit more",
@@ -45,6 +47,10 @@ export default Component.extend({
                     });
                 });
             }
+
+            this.sendAction('refresh');
+            this.set('bid', '');
+
         }
     }
 });

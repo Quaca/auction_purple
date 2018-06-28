@@ -20,6 +20,9 @@ export default Base.extend({
         const cookie = this.get('userService').getCookie('user');
         if(cookie){
             controller.set('currentUser', JSON.parse(cookie));
+            this.transitionTo('index');
         }
     },
+
+    
 });

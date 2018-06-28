@@ -25,8 +25,10 @@ public class BidController extends Controller {
     @Transactional
     public Result postBid(){
         JsonNode json = request().body().asJson();
+        System.out.print("Json:" + json);
         Bid bid = new Bid();
-        User user = userService.get(UUID.fromString(json.get("user_id").asText()));
+        String sessionUser=session("logged");
+        User user = userService.get(UUID.fromString(sessionUser));
         Item item = itemService.getItem(UUID.fromString(json.get("item_id").asText()));
         bid.setUser(user);
         bid.setItem(item);

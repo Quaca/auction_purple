@@ -17,12 +17,8 @@ import java.util.UUID;
 @Table(name = "tokens")
 public class PasswordResetToken {
 
-<<<<<<< HEAD
     public static final int EXPIRATION = 60 * 24;
 
-=======
-    private static final int EXPIRATION = 60 * 24;
->>>>>>> 34b68903fde89b4ba428e748aed91f84175ea0ba
 
     @Id
     @GeneratedValue

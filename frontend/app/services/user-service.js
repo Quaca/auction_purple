@@ -23,6 +23,13 @@ export default Service.extend({
         })
     },
 
+    logout(){
+        return $.ajax({
+            method: 'GET',
+            url: '/api/v1/logout'
+        })
+    },
+
     subscribe(params){
         return $.ajax({
             method: 'POST',

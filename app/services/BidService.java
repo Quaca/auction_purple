@@ -13,7 +13,6 @@ public class BidService {
 
 
     public boolean postBid(Bid bid){
-        System.out.println("AMAR" + Json.toJson(repository.getMaxBid(bid.getItem())));
         if (bid.getBidPrice() > repository.getMaxBid(bid.getItem()).getMaxBid()) {
             repository.postBid(bid);
             return true;

@@ -1,7 +1,14 @@
 import Controller from '@ember/controller';
 import baseController from './base-controller';
 
-export default baseController.extend({
+export default Ember.Controller.extend({
+
+    actions:{
+        refresh(){
+            this.send('newBid');
+        }
+    }
+    
 
     // websocket: Ember.inject.service(),
 

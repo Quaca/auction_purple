@@ -7,7 +7,7 @@
     {{extended-navbar}}
     <div class="container">
         {{#if currentUser}}
-          <a style="color: black" {{action 'logout'}}>Logout {{currentUser.email}}</a>
+          <a style="color: black" {{action 'logout'}}>Logout {{currentUser.userId}}</a>
         {{/if}}
         <div id="feature-collection" class="mt-5">
             <div class="row">

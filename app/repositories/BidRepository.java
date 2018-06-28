@@ -36,8 +36,8 @@ public class BidRepository {
         return (MaxBid) getSession().createCriteria(Bid.class)
                 .add(Restrictions.eq("item", item))
                 .setProjection(Projections.projectionList()
-                        .add(Projections.max("bidPrice").as("maxBid"))
-                        .add(Projections.count("id").as("numOfBids")))
+                        .add(Projections.count("id").as("numOfBids"))
+                        .add(Projections.max("bidPrice").as("maxBid")))
                 .setResultTransformer(Transformers.aliasToBean(MaxBid.class))
                 .uniqueResult();
 

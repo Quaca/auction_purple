@@ -28,7 +28,7 @@ GET     /api/v1/getFeatureProducts  controllers.ItemController.getFeatureProduct
 
 #Bidding
 POST    /api/v1/postBid             controllers.BidController.postBid()
-POST    /api/v1/getBid              controllers.BidController.getMaxBid()
+POST    /api/v1/getMaxBid           controllers.BidController.getMaxBid()
 
 # Update item
 PUT     /api/v1/item                controllers.ItemController.update()

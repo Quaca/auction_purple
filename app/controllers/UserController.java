@@ -5,10 +5,7 @@ import models.Subscriber;
 import models.User;
 import models.helpers.LoginForm;
 import models.helpers.PasswordResetToken;
-<<<<<<< HEAD
 
-=======
->>>>>>> 34b68903fde89b4ba428e748aed91f84175ea0ba
 import models.helpers.RegisterForm;
 import play.data.Form;
 import play.data.FormFactory;
@@ -37,7 +34,7 @@ public class UserController extends Controller {
         User user = form.get().createAccount();
 
         if(service.register(form.get()).getSuccessful() == true){
-            session("logged", user.toString());
+            session("logged", user.getId().toString());
             return ok(Json.toJson(user));
         }
         else {
@@ -52,7 +49,7 @@ public class UserController extends Controller {
 
             User user = this.service.login(form.get());
             if(user != null) {
-                session("logged", user.toString());
+                session("logged",user.getId().toString());
                 return ok(Json.toJson(user));
             }
         }
@@ -111,7 +108,7 @@ public class UserController extends Controller {
     public Result getCurrentUser(){
         String sessionUser=session("logged");
         if(sessionUser != null) {
-            return ok(Json.toJson(sessionUser));
+            return ok(Json.parse("{\"userId\":\"" + sessionUser + "\"}"));
         } else {
             return ok("Not Logged In");
         }

@@ -12,11 +12,13 @@ export default Service.extend({
             data:params ? JSON.stringify(params) : null
         })
     },
-    getBid(params){
+    getMaxBid(params){
         return $.ajax({
-            method: 'Post',
-            url: '/api/v1/getBid',
-            data:params
+            method: 'POST',
+            url: '/api/v1/getMaxBid',
+            cache: false,
+            contentType: 'application/json',
+            data:params ? JSON.stringify(params) : null
         })
     }
 });

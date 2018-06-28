@@ -1,7 +1,5 @@
 # --- !Ups
 
-INSERT INTO "user"(first_name,last_name,username,email) VALUES('Amar', 'Kvakic', 'Quaca', 'amar.kvakic@gmail.com');
-
 INSERT INTO category(name) VALUES ('Fashion');
 INSERT INTO category(name) VALUES ('Accesories');
 INSERT INTO category(name) VALUES ('Jewlery');
@@ -77,7 +75,6 @@ INSERT INTO item(name, user_id, subcategory_id, popularity, description, color, 
   'blue', null, 45.00, 120.00, '2016-05-21 06:40:50', '2018-10-10 09:30:20', 'new');
 
 
-
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/golf-7.jpg' FROM item where name = 'Golf7';
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/house.jpg' FROM item where name = 'House for big family';
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/komp.png' FROM item where name = 'Desktop computer Dell';
@@ -91,6 +88,7 @@ INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa20
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/suzuki.jpg' FROM item where name = 'Suzuki motorcycle';
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/women_bag.jpg' FROM item where name = 'Women bag';
 INSERT INTO item_photo(item_id, photo_path) SELECT item.id, 'https://abhpraksa201805.s3.amazonaws.com/women_t-shirt.jpg' FROM item where name = 'Women t-shirt';
+
 
 # --- !Downs
 TRUNCATE "user", category, subcategory, item, item_photo CASCADE;
