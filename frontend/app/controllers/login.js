@@ -37,6 +37,7 @@ export default baseController.extend({
                         type: "success",
                         button: "Aww yiss!",
                       });
+                      this.send('refreshApp');
                     this.transitionToRoute('index');
                 }
             )

@@ -34,19 +34,17 @@ export default Component.extend({
                             text: "Posted",
                             type: "success",
                             button: "Aww yiss!",
+                        });    
+                    }).catch(
+                        (error) => {
+                        swal({
+                            title:"",
+                            text: error,
+                            type: "error",
+                            button: "Aww yiss!",
                         });
-                        
-                }
-
-            ).catch(() => {
-                    swal({
-                        title:"",
-                        text: "Enter a litle bit more",
-                        type: "error",
-                        button: "Aww yiss!",
                     });
-                });
-            }
+                }
 
             this.sendAction('refresh');
             this.set('bid', '');

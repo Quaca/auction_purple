@@ -90,12 +90,18 @@
                 {{item-bid item=model.item maxBid=model.maxBid user=currentUser refresh='refresh'}}
                 <p>Highest bid: ${{model.maxBid.maxBid}}</p>
                 <p>No.bids: {{model.maxBid.numOfBids}}</p>
-                <p>Time left: 10 days</p>
+                <p>Time left: 
+                {{!-- {{date.[0]}} days 
+                {{date.[1]}} hours
+                {{date.[2]}} minutes
+                {{date.[3]}} seconds --}}
+                {{countdown-string item=item}}
+                </p>
                 <button class="custom-button col-md-4 col-sm-12" {{action 'refresh'}}>Watchlist {{fa-icon 'heart' size="lg" class="c-grey"}}</button>
                 <h5 class="border-d-2 my-3">Details</h5>
                 <p class="fs-14">{{model.item.description}}</p>
                 {{currentUser.id}}
-
+                
             </div>
         </div>
     </div>

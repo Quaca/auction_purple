@@ -9,9 +9,10 @@ export default Base.extend({
     model(params){
         return Ember.RSVP.hash({
             item: this.get('itemService').getItem(params),
-            maxBid: this.get('bidService').getMaxBid(params)
+            maxBid: this.get('bidService').getMaxBid(params),
          })
     },
+    
     setupController(controller, model) {
         this._super(controller, model);
         controller.set('model', model);
@@ -20,24 +21,5 @@ export default Base.extend({
             controller.set('currentUser',JSON.parse(cookie));
         }
     },
-    actions:{
-        newBid(){
-            this.refresh();
-        }
-    }
     
-    
-    // resetController(controller, isExiting, transition) {
-    //     if(isExiting){
-    //         controller.set('bid', null);
-    //     }
-
-    //     this._super(...arguments);
-    // }
-
-    // model(params){
-    //     return Ember.RSVP.hash({
-    //         item: this.get('itemService').getItem(params)
-    //      })
-    // },
 });

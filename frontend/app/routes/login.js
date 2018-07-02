@@ -24,5 +24,12 @@ export default Base.extend({
         }
     },
 
+    actions:{
+        ref(){
+            this.refresh();
+        }
+    }
+
+    
     
 });

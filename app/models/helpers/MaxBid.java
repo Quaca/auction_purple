@@ -1,8 +1,11 @@
 package models.helpers;
 
-import scala.Int;
+import com.google.inject.Inject;
+import services.ItemService;
 
 public class MaxBid {
+
+    @Inject public ItemService itemService;
 
     private double maxBid;
     private double numOfBids;
@@ -29,14 +32,6 @@ public class MaxBid {
 
         }
 
-//        if(numOfBids != 0){
-//            this.maxBid = Double.parseDouble(maxBid.toString());
-//        }
-//        else {
-//            this.maxBid = 0;
-//        }
-
     }
-
 
 }

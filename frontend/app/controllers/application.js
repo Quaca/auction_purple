@@ -7,10 +7,10 @@ export default Ember.Controller.extend({
 
     
     loggedIn:false,
-
     actions:{
         play(){
             console.log(this.loggedIn);
+            this.send('refreshApp');
         }
     }
 });

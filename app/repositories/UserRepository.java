@@ -101,10 +101,4 @@ public class UserRepository {
         getSession().delete(subscriber1);
     }
 
-    public void getBid(){
-        Criteria criteria = getSession().createCriteria(Bid.class);
-        Criteria bidCriteria = criteria.createCriteria("item");
-
-    }
-
 }

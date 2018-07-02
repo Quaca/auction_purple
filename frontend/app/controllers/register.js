@@ -33,6 +33,7 @@ export default Controller.extend({
                     this.get('userService').login(params).then(
                         (user) => {
                             this.get('userService').setCookie('user', JSON.stringify({"userId":"" + user.id + ""}));
+                            this.send('refreshApp');
                             this.transitionToRoute('index');
                         }
                     )

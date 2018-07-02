@@ -34,8 +34,9 @@ public class UserController extends Controller {
         User user = form.get().createAccount();
 
         if(service.register(form.get()).getSuccessful() == true){
-            session("logged", user.getId().toString());
-            return ok(Json.toJson(user));
+            User newUser = service.findUserByEmail(user.getEmail());
+            session("logged", newUser.getId().toString());
+            return ok(Json.toJson(newUser));
         }
         else {
             return badRequest(service.register(form.get()).getMessage());

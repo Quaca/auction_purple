@@ -20,6 +20,11 @@ export default Route.extend({
         else{
             controller.set('loggedIn', false)
         }
+    },
+    actions:{
+        refreshApp(){
+            this.refresh();
+        }
     }
     
 });

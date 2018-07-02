@@ -32,7 +32,7 @@ public class BidRepository {
         return bid;
     }
 
-    public MaxBid getMaxBid(Item item){
+    public MaxBid getMaxAndNumOfBids(Item item){
         return (MaxBid) getSession().createCriteria(Bid.class)
                 .add(Restrictions.eq("item", item))
                 .setProjection(Projections.projectionList()
