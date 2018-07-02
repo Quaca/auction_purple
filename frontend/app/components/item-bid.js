@@ -31,7 +31,7 @@ export default Component.extend({
                     (data) => {
                         swal({
                             title:"",
-                            text: "Posted",
+                            text: data,
                             type: "success",
                             button: "Aww yiss!",
                         });    
@@ -39,7 +39,7 @@ export default Component.extend({
                         (error) => {
                         swal({
                             title:"",
-                            text: error,
+                            text: error.responseText,
                             type: "error",
                             button: "Aww yiss!",
                         });

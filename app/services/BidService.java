@@ -14,28 +14,27 @@ public class BidService {
 
     @Inject public BidRepository repository;
 
+    public String postBid(Bid bid){
 
-    public boolean postBid(Bid bid){
+        final boolean isAboveStartingPrice = bid.getBidPrice() > bid.getItem().getStartingPrice();
+        final boolean isHighEnough = bid.getBidPrice() > repository.getMaxAndNumOfBids(bid.getItem()).getMaxBid();
+        final boolean isBeforeEndTime = bid.getDate().getTime() < bid.getItem().getEndDate().getTime();
 
-        if (bid.getBidPrice() > bid.getItem().getStartingPrice()){
-            if (bid.getBidPrice() > repository.getMaxAndNumOfBids(bid.getItem()).getMaxBid()) {
-
-                if(bid.getDate().getTime() < bid.getItem().getEndDate().getTime()){
-                    repository.postBid(bid);
-                    return true;
-                }
-                else {
-                    return false;
-                }
-
-            }
-            else {
-                return false;
-            }
+        if(isAboveStartingPrice  && isHighEnough  && isBeforeEndTime){
+            repository.postBid(bid);
+            return "Posted";
         }
-        else {
-            return false;
+        else if(!isBeforeEndTime){
+            return "Auction has finished";
         }
+        else if(!isHighEnough){
+            return "It is lower than last bid";
+        }
+        else{
+            return "It is lower than starting price";
+        }
+
+
     }
 
     public MaxBid getMaxBid(Item item){

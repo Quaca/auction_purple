@@ -34,11 +34,13 @@ public class BidController extends Controller {
         bid.setItem(item);
         bid.setDate(new Date());
         bid.setBidPrice(Double.parseDouble(json.get("bid_price").asText()));
-        if (bidService.postBid(bid)){
-            return ok(Json.toJson(bid));
+
+        String bidString = bidService.postBid(bid);
+        if (bidString == "Posted"){
+            return ok(bidString);
         }
         else {
-            return badRequest("Ne valja");
+            return badRequest(bidString);
         }
     }
 
