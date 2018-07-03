@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
+import Base from './base-route';
 
-export default Route.extend({
+export default Base.extend({
 
     userService: Ember.inject.service('user-service'),
 
@@ -19,6 +20,16 @@ export default Route.extend({
         const cookie = this.get('userService').getCookie('user');
         if(cookie){
             controller.set('currentUser', JSON.parse(cookie));
+            this.transitionTo('index');
+        }
+    },
+
+    actions:{
+        ref(){
+            this.refresh();
         }
     }
+
+    
+    
 });

@@ -11,6 +11,7 @@ POST    /api/v1/generateToken       controllers.UserController.generateToken()
 POST    /api/v1/changePassword      controllers.UserController.changePassword()
 POST    /api/v1/subscribe           controllers.UserController.subscribe()
 
+
 # Creates item
 POST    /api/v1/item                controllers.ItemController.create()
 # Get item
@@ -24,11 +25,17 @@ GET     /api/v1/getLastChance       controllers.ItemController.getLastChance()
 GET     /api/v1/getNewArrivals      controllers.ItemController.getNewArrivals()
 GET     /api/v1/getFeatureProducts  controllers.ItemController.getFeatureProducts()
 
+
+#Bidding
+POST    /api/v1/postBid             controllers.BidController.postBid()
+POST    /api/v1/getMaxBid           controllers.BidController.getMaxBid()
+
 # Update item
 PUT     /api/v1/item                controllers.ItemController.update()
 
 # Delete item
 DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
+
 
 
 # EMBER PASSTHROUGH ROUTES ---------------------------------------------------------------------------------------------
@@ -37,3 +44,4 @@ GET     /assets/*file                                       controllers.Assets.a
 GET     /fonts/*file                                        controllers.Assets.at(path="/public/fonts", file)
 GET     /                                                   controllers.HomeController.index(slug="")
 GET     /*slug                                              controllers.HomeController.index(slug)
+

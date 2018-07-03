@@ -9,3 +9,4 @@ public class ConfigModule extends AbstractModule {
         bind(Config.class).toProvider(ConfigProvider.class);
     }
 }
+

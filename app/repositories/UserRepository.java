@@ -1,9 +1,11 @@
 package repositories;
 
+import models.Bid;
 import models.Item;
 import models.Subscriber;
 import models.User;
 import models.helpers.PasswordResetToken;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -25,6 +27,12 @@ public class UserRepository {
     public User register(User user){
         getSession().persist(user);
         return user;
+    }
+
+    public User get(UUID id){
+        return (User)getSession().createCriteria(User.class)
+                .add(Restrictions.eq("id", id))
+                .uniqueResult();
     }
 
     public boolean checkCredentials(String email, String hash){
@@ -92,7 +100,5 @@ public class UserRepository {
                 .uniqueResult();
         getSession().delete(subscriber1);
     }
-
-
 
 }

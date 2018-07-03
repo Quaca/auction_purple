@@ -35,4 +35,5 @@ public class Test2 extends Controller {
 
         return ok();
     }
+
 }

@@ -5,6 +5,7 @@ import models.Subscriber;
 import models.User;
 import models.helpers.LoginForm;
 import models.helpers.PasswordResetToken;
+
 import models.helpers.RegisterForm;
 import play.data.Form;
 import play.data.FormFactory;
@@ -33,8 +34,9 @@ public class UserController extends Controller {
         User user = form.get().createAccount();
 
         if(service.register(form.get()).getSuccessful() == true){
-            session("logged", user.toString());
-            return ok(Json.toJson(user));
+            User newUser = service.findUserByEmail(user.getEmail());
+            session("logged", newUser.getId().toString());
+            return ok(Json.toJson(newUser));
         }
         else {
             return badRequest(service.register(form.get()).getMessage());
@@ -48,7 +50,7 @@ public class UserController extends Controller {
 
             User user = this.service.login(form.get());
             if(user != null) {
-                session("logged", user.toString());
+                session("logged",user.getId().toString());
                 return ok(Json.toJson(user));
             }
         }
@@ -59,7 +61,6 @@ public class UserController extends Controller {
     public Result generateToken(){
 
         JsonNode json = request().body().asJson();
-        System.out.print(json);
         if (json == null){
             return badRequest("Please enter email before sending");
         }
@@ -72,10 +73,11 @@ public class UserController extends Controller {
         Date date = new Date();
         token.setUser(user);
         token.setToken(UUID.randomUUID().toString());
-        token.setDate((date));
+        token.setDate(date);
         service.addToken(token);
 
         service.sendEmail(user.getEmail(), token.getToken());
+
 
         return ok();
     }
@@ -107,7 +109,7 @@ public class UserController extends Controller {
     public Result getCurrentUser(){
         String sessionUser=session("logged");
         if(sessionUser != null) {
-            return ok(Json.toJson(sessionUser));
+            return ok(Json.parse("{\"userId\":\"" + sessionUser + "\"}"));
         } else {
             return ok("Not Logged In");
         }
@@ -118,7 +120,4 @@ public class UserController extends Controller {
         session().clear();
         return ok("Logged out");
     }
-
-
-
 }

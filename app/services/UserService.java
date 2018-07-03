@@ -14,6 +14,7 @@ import repositories.UserRepository;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,6 +59,10 @@ public class UserService {
         }
         else {return null;}
 
+    }
+
+    public User get(UUID id){
+        return repository.get(id);
     }
 
     private boolean validateEmail(String emailStr)
@@ -109,3 +114,4 @@ public class UserService {
         mailerClient.send(email);
     }
 }
+

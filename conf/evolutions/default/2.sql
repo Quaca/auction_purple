@@ -1,7 +1,5 @@
 # --- !Ups
 
-INSERT INTO "user"(first_name,last_name,username,email) VALUES('Amar', 'Kvakic', 'Quaca', 'amar.kvakic@gmail.com');
-
 INSERT INTO category(name) VALUES ('Fashion');
 INSERT INTO category(name) VALUES ('Accesories');
 INSERT INTO category(name) VALUES ('Jewlery');

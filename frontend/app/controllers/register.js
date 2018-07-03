@@ -9,7 +9,7 @@ export default Controller.extend({
 
     init() {
         this._super(...arguments);
-        this.set('errorMEssage', null);
+        this.set('errorMessage', null);
     },
 
     actions:{
@@ -32,7 +32,8 @@ export default Controller.extend({
                 () => {
                     this.get('userService').login(params).then(
                         (user) => {
-                            this.get('userService').setCookie('user', JSON.stringify(user));
+                            this.get('userService').setCookie('user', JSON.stringify({"userId":"" + user.id + ""}));
+                            this.send('refreshApp');
                             this.transitionToRoute('index');
                         }
                     )

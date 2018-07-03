@@ -1,44 +1,37 @@
-package models.helpers;
-
-import models.User;
+package models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tokens")
-public class PasswordResetToken {
-
-    public static final int EXPIRATION = 60 * 24;
-
+@Table(name = "bidding")
+public class Bid {
 
     @Id
     @GeneratedValue
     @Column(name = "id")
     private UUID id;
 
-    @Column(name = "token")
-    private String token;
-
-    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @Column(name = "date")
+    @ManyToOne
+    @JoinColumn(name = "item_id", referencedColumnName = "id")
+    private Item item;
+
+    @Column(name = "bid_price")
+    private double bidPrice;
+
+    @Column(name = "bid_date")
     private Date date;
-
-
-    public static int getEXPIRATION() {
-        return EXPIRATION;
-    }
 
     public UUID getId() {
         return id;
@@ -46,14 +39,6 @@ public class PasswordResetToken {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
     }
 
     public User getUser() {
@@ -64,6 +49,22 @@ public class PasswordResetToken {
         this.user = user;
     }
 
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public double getBidPrice() {
+        return bidPrice;
+    }
+
+    public void setBidPrice(double bidPrice) {
+        this.bidPrice = bidPrice;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -71,5 +72,4 @@ public class PasswordResetToken {
     public void setDate(Date date) {
         this.date = date;
     }
-
 }

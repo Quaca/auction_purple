@@ -3,6 +3,13 @@ import $ from 'jquery';
 
 export default Service.extend({
 
+    getItem(params){
+        return $.ajax({
+            method:'GET',
+            url:'/api/v1/item/'+ params.id,
+        })
+    },
+
     getLandingItem(){
         return $.ajax({
             method: 'GET',

@@ -9,7 +9,11 @@
     </div>
     <div class="navbar-expand">
       <div class="navbar-nav">
-        {{#link-to 'login' class="nav-item nav-link"}}Login{{/link-to}}
+        {{#if loggedIn}}
+          <a class="nav-item nav-link" {{action 'logout'}} style="cursor:pointer">Logout</a>
+        {{else}}
+          {{#link-to 'login' class="nav-item nav-link"}}Login{{/link-to}}
+        {{/if}}
         {{#link-to 'register' class="nav-item nav-link"}}Register{{/link-to}}
       </div>
     </div>

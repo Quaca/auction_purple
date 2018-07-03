@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import play.db.jpa.JPAApi;
+import play.libs.Json;
+import sun.rmi.runtime.Log;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -58,8 +60,9 @@ public class ItemRepository {
     }
 
     public Item get(UUID id){
-        return (Item) setCriteria().add(Restrictions.eq("id", id)).uniqueResult();
-
+        Item item =(Item) setCriteria().add(Restrictions.eq("id", id)).uniqueResult();
+        System.out.print(Json.toJson(item));
+        return item;
     }
 
     public boolean delete(UUID id){
