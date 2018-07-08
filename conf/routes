@@ -36,8 +36,13 @@ PUT     /api/v1/item                controllers.ItemController.update()
 # Delete item
 DELETE  /api/v1/item/:id            controllers.ItemController.delete(id:String)
 
+#Category
+GET     /api/v1/category            controllers.ItemController.getCategories()
+POST    /api/v1/subCategory         controllers.ItemController.getSubCategories()
 
+#Upload
 
+POST    /api/v1/upload              controllers.ItemController.upload()
 # EMBER PASSTHROUGH ROUTES ---------------------------------------------------------------------------------------------
 
 GET     /assets/*file                                       controllers.Assets.at(path="/public/assets", file)

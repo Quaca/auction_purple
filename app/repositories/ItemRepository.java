@@ -1,6 +1,8 @@
 package repositories;
 
+import models.Category;
 import models.Item;
+import models.Subcategory;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
@@ -113,6 +115,23 @@ public class ItemRepository {
                 .setMaxResults(4)
                 .list();
         return featureProducts;
+    }
+
+    public Category getCategory(UUID id){
+        return (Category) getSession().createCriteria(Category.class).add(Restrictions.eq("id", id)).uniqueResult();
+    }
+
+    public List<Category> getCategories(){
+        List<Category> categories = getSession().createCriteria(Category.class)
+                .list();
+        return categories;
+    }
+
+    public List<Subcategory> getSubCategories(Category category){
+        List<Subcategory> subcategories = getSession().createCriteria(Subcategory.class)
+                .add(Restrictions.eq("category", category))
+                .list();
+        return subcategories;
     }
 
 }
