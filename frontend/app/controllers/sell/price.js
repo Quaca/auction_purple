@@ -13,9 +13,9 @@ export default Controller.extend({
         else if(this.get('duration')==172800000) return '2 days'
         else if(this.get('duration')==259200000) return '3 days'
         else if(this.get('duration')==345600000) return '4 days'
-        else if(this.get('duration')==518400000) return '5 days'
-        else if(this.get('duration')==604800000) return '6 days'
-        else if(this.get('duration')==691200000) return '7 days'
+        else if(this.get('duration')==432000000) return '5 days'
+        else if(this.get('duration')==518400000) return '6 days'
+        else if(this.get('duration')==604800000) return '7 days'
         else return 'Duration'
     }),
 
@@ -46,6 +46,7 @@ export default Controller.extend({
                 "endDate": this.get('endDate')
             }
             this.send('post', params);
+            this.transitionToRoute('index');
         }
 
     }

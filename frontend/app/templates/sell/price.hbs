@@ -6,7 +6,7 @@
                     <h3>SET PRICES</h3>
                 </div>
                 <label for="price">Your start price</label>
-                {{input id="price" class='form-input mb-4' type='number' value=price}}
+                {{input id="price" class='form-input mb-4' type='number' min=0 required=true value=price placeholder="Price in dollars"}}
 
                 <div class="row justify-content-between my-3">
                     <div class="col-12">
@@ -20,33 +20,20 @@
                             <option value="172800">2 days</option>
                             <option value="259200">3 days</option>
                             <option value="345600">4 days</option>
-                            <option value="518400">5 days</option>
-                            <option value="604800">6 days</option>
-                            <option value="691200">7 days</option>
+                            <option value="432000">5 days</option>
+                            <option value="518400">6 days</option>
+                            <option value="604800">7 days</option>
                         </select>
                     </div>
                 </div>
                 <p class="small">The auction will be automatically closed when the end time comes. The highest bid will win the auction.</p>
 
-                {{!-- <div class="row justify-content-between my-3">
-                    <div class="col-sm-6 mb-4">
-                        <label for="startDate">Start Date</label>
-                        {{pikaday-input onSelection=(action 'doSomethingWithSelectedValue') value=startDate id='startDate' format="DD/MM/YYYY" placeholder="Click to pick starting date"}}
-                    </div>
-                    <div class="col-sm-6 mb-4">
-                        <label for="endDate">End Date</label>
-                        {{pikaday-input id="endDate" format="MM/DD/YYYY" placeholder="Click to pick ending date"}}                        
-                    </div>
-                </div>
-
-                {{input id="m" class='form-input mb-4' type='datetime-local' value=mname}} --}}
-
                 <div class="row justify-content-between my-3">
                     <div class="col-4">
-                        <button class="custom-button fs-14" {{action 'updatePrice'}}>{{fa-icon 'angle-left' size="lg"}} Back</button>
+                        <button class="custom-button fs-14" type="submit" {{action 'updatePrice'}}>{{fa-icon 'angle-left' size="lg"}} Back</button>
                     </div>
                     <div class="col-4">
-                        <button class="form-button button-purple fs-14" {{action 'postItem'}}>Done</button>
+                        <button class="form-button button-purple fs-14" type="submit" {{action 'postItem'}}>Done</button>
                     </div>
                 </div>
             </div>

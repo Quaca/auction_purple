@@ -13,7 +13,6 @@ export default FileField.extend({
         });
     
         if (!Ember.isEmpty(files)) {
-          // this second argument is optional and can to be sent as extra data with the upload
             uploader.upload(files[0]).then(
               (imageUrl) => {
                 console.log(imageUrl);
@@ -27,12 +26,19 @@ export default FileField.extend({
         }
 
         uploader.on('progress', (e) => {
-            console.log(e.percent);
-            this.set('onProgress', e.percent);
+            this.set('onProgress', 99);
         });
         
         uploader.on('didUpload', () => {
-            alert('uploaded');
+            this.set('onProgress', 100);
+            swal({
+                title:"",
+                text: "Image uploaded",
+                type: "success",
+                button: "Aww yiss!",
+            });
+            this.set('onProgress', 0);
+            
         })
     }
 

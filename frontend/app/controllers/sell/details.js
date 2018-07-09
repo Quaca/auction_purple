@@ -19,12 +19,6 @@ export default Controller.extend({
     },
 
 
-    imageUpload: function(e){
-        Ember.run.once(this, function(){
-            this.set('imageUploadPercentage', e.percent);
-        })
-    },
-
     actions:{
 
         addImage(image) {
@@ -63,8 +57,8 @@ export default Controller.extend({
                 'description': this.get('description'),
                 'imagePaths': JSON.stringify(this.get('images'))
             }
-            console.log(JSON.stringify(this.get('images')))
             this.send('postDetails', params)
+            
         },
 
         updateDetailsBack(){

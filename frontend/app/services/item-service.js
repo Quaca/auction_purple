@@ -58,6 +58,24 @@ export default Service.extend({
             contentType: 'application/json',
             data:params ? JSON.stringify(params) : null,
         })
+    },
+    createItem(params){
+        return $.ajax({
+            method: 'POST',
+            url: '/api/v1/createItem',
+            cache: false,
+            contentType: 'application/json',
+            data:params ? JSON.stringify(params) : null,
+        })
+    },
+    setImages(params){
+        return $.ajax({
+            method: 'POST',
+            url: '/api/v1/setImages',
+            cache: false,
+            contentType: 'application/json',
+            data:params ? JSON.stringify(params) : null,
+        })
     }
     
 });

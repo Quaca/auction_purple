@@ -2,6 +2,7 @@ package repositories;
 
 import models.Category;
 import models.Item;
+import models.ItemPhoto;
 import models.Subcategory;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -127,11 +128,20 @@ public class ItemRepository {
         return categories;
     }
 
+    public Subcategory getSubcategory(UUID id){
+        return (Subcategory) getSession().createCriteria(Subcategory.class).add(Restrictions.eq("id", id)).uniqueResult();
+    }
+
     public List<Subcategory> getSubCategories(Category category){
         List<Subcategory> subcategories = getSession().createCriteria(Subcategory.class)
                 .add(Restrictions.eq("category", category))
                 .list();
         return subcategories;
+    }
+
+    public void addPhoto(ItemPhoto itemPhoto){
+        api.em().persist(itemPhoto);
+
     }
 
 }

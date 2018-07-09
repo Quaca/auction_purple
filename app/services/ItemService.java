@@ -2,6 +2,7 @@ package services;
 
 import models.Category;
 import models.Item;
+import models.ItemPhoto;
 import models.Subcategory;
 import repositories.ItemRepository;
 
@@ -13,8 +14,6 @@ import java.util.UUID;
 @Singleton
 public class ItemService {
     @Inject private ItemRepository repository;
-
-    private static final String AWS_BASE_PATH = "https://abhpraksa201805.s3.amazonaws.com/";
 
 
     public Item addItem(Item item){
@@ -57,9 +56,18 @@ public class ItemService {
         return repository.getCategories();
     }
 
+    public Subcategory getSubcategory(UUID id){
+        return repository.getSubcategory(id);
+    }
+
     public List<Subcategory> getSubCategories(UUID id){
         Category category = repository.getCategory(id);
         return repository.getSubCategories(category);
+    }
+
+    public void addPhoto(ItemPhoto itemPhoto){
+        System.out.println("From service" + itemPhoto);
+        this.repository.addPhoto(itemPhoto);
     }
 
 //    public String updatePicture(ImageUploadForm imageUploadForm) throws Exception{
