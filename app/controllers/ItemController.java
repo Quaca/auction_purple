@@ -159,8 +159,8 @@ public class ItemController extends Controller {
     public Result upload(){
 
         AWSCredentials credentials = new BasicAWSCredentials(
-                ConfigFactory.load().getString("AWS_KEY"),
-                ConfigFactory.load().getString("AWS_SECRET")
+                ConfigFactory.load().getString("aws.key"),
+                ConfigFactory.load().getString("aws.secret")
 
                 );
         AmazonS3Client s3client = new AmazonS3Client(credentials);
@@ -169,10 +169,10 @@ public class ItemController extends Controller {
         Http.MultipartFormData<File> body = request().body().asMultipartFormData();
         Http.MultipartFormData.FilePart<File> picture = body.getFile("file");
 
-        PutObjectRequest putObjectRequest = new PutObjectRequest(ConfigFactory.load().getString("AWS_BUCKET"), picture.getFilename(), picture.getFile()).withCannedAcl(CannedAccessControlList.PublicRead);
+        PutObjectRequest putObjectRequest = new PutObjectRequest(ConfigFactory.load().getString("aws.bucket"), picture.getFilename(), picture.getFile()).withCannedAcl(CannedAccessControlList.PublicRead);
         s3client.putObject(putObjectRequest);
 
-        return ok(s3client.getUrl(ConfigFactory.load().getString("AWS_BUCKET"), picture.getFilename()).toString());
+        return ok(s3client.getUrl(ConfigFactory.load().getString("aws.bucket"), picture.getFilename()).toString());
     }
 
     @Transactional
