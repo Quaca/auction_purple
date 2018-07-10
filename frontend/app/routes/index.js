@@ -26,7 +26,9 @@ export default Base.extend({
 
     setupController(controller, model) {
         this._super(controller, model);
-        controller.set('model', model);
+        controller.set('popularItems', model.popularItems);
+        controller.set('landingItem', model.landingItem);
+        controller.set('featureProducts', model.featureProducts);        
         const cookie = this.get('userService').getCookie('user');        
         if(cookie){
             controller.set('currentUser',JSON.parse(cookie));

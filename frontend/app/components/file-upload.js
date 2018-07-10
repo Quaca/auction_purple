@@ -30,7 +30,7 @@ export default FileField.extend({
                 this.set('onProgress', 99);
             }
             else{
-                this.set('onProgress', e.percent);
+                this.set('onProgress', Math.round(e.percent));
             }
         });
         
