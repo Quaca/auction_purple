@@ -17,6 +17,7 @@ POST    /api/v1/createItem          controllers.ItemController.create()
 POST    /api/v1/setImages           controllers.ItemController.setImages()
 # Get item
 GET     /api/v1/item/:id            controllers.ItemController.retrieve(id:String)
+GET     /pi/v1/photosForItem/:id    controllers.ItemController.getPhotosForItem(id:String)
 # List all items
 GET     /api/v1/item                controllers.ItemController.listItems()
 # Get popular items

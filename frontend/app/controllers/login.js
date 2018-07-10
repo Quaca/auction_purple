@@ -7,17 +7,9 @@ export default baseController.extend({
 
     userService: Ember.inject.service('user-service'),
     errorMessage: null,
-
-    // didInsertElement() {
-    //     this.$('input').attr('value', this.get('null'));
-    // },
     
 
     actions:{
-
-        // change() {
-        //     this.onChange();
-        // },
 
         login(){
             let email = this.get('email');

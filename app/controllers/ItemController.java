@@ -57,8 +57,13 @@ public class ItemController extends Controller {
         item.setEndDate(new Date(json.get("endDate").asLong()));
 
         String sessionUser=session("logged");
-        User user = userService.get(UUID.fromString(sessionUser));
-        item.setUser(user);
+        if(sessionUser != null){
+            User user = userService.get(UUID.fromString(sessionUser));
+            item.setUser(user);
+        }
+        else{
+            return badRequest("User not logged in");
+        }
 
         Item item2 = service.addItem(item);
         JsonNode jsonObject = Json.toJson(item2);
@@ -98,6 +103,13 @@ public class ItemController extends Controller {
     public Result delete(String id){
         service.delete(UUID.fromString(id));
         return noContent();
+    }
+
+
+    @Transactional
+    public Result getPhotosForItem(String id){
+        JsonNode jsonObject = Json.toJson(service.getPhotosForItem(UUID.fromString(id)));
+        return ok(jsonObject);
     }
 
     @Transactional

@@ -76,6 +76,13 @@ export default Service.extend({
             contentType: 'application/json',
             data:params ? JSON.stringify(params) : null,
         })
+    },
+
+    getPhotosForItem(params){
+        return $.ajax({
+            method:'GET',
+            url:'/api/v1/photosForItem/'+ params.id,
+        })
     }
     
 });

@@ -11,11 +11,6 @@ export default baseController.extend({
     featureProducts: alias('model.featureProducts'),
     landingItem: alias('model.landingItem'),
 
-    actions:{
-        logout(){          
-            this.logout();
-            this.transitionToRoute('login');
-        }
-    }
+    
 
 });

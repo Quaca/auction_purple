@@ -40,6 +40,8 @@ public class ItemService {
 
     public Item getLandingItem(){return repository.getLandingItem();}
 
+    public List<ItemPhoto> getPhotosForItem(UUID id){return repository.getPhotosForItem(id);}
+
     public List<Item> getPopularItems(){
         return repository.getPopularItems();
     }

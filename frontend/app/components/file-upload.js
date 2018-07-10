@@ -26,7 +26,12 @@ export default FileField.extend({
         }
 
         uploader.on('progress', (e) => {
-            this.set('onProgress', 99);
+            if(e.percent==100){
+                this.set('onProgress', 99);
+            }
+            else{
+                this.set('onProgress', e.percent);
+            }
         });
         
         uploader.on('didUpload', () => {

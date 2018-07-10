@@ -4,38 +4,20 @@
              <div class="col-md-5 mt-3 border-d-md-2">
                     <div id="carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active">
-                                <div class="carousel-item-image" style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/almir.jpg')">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-item-image" style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/i2.jpeg')">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-item-image" style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/min.jpg')">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-item-image" style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/i3.jpeg')">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-item-image" style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/i4.jpeg')">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-item-image" style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/porse.jpg')">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-item-image" style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/rolex-watch.jpg')">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-item-image" style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/women_bag.jpg')">
-                                </div>
-                            </div>
+                            {{#each model.item.photos as |image index|}}
+                                {{#if index}}
+                                    <div class="carousel-item">
+                                        <div class="carousel-item-image" style="background-image:url('{{image.photoPath}}')">
+                                        </div>
+                                    </div>
+                                {{else}}
+                                    <div class="carousel-item active">
+                                        <div class="carousel-item-image" style="background-image:url('{{image.photoPath}}')">
+                                        </div>
+                                    </div>
+                                {{/if}}
+                            {{/each}}
+                            
                         </div>
                         <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon-custom c-black" aria-hidden="true">{{fa-icon 'chevron-circle-left' size='2'}} </span>
@@ -47,38 +29,20 @@
                 <div class="row my-3">
                     <div class="carousel-inner col-sm-12">
                         <div class="row">
-                            <div class="active thumb">
-                                <div data-target="#carousel" data-slide-to="0" class="thumb-image border-2"
-                                    style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/i1.jpeg')"></div>
-                            </div><!-- /item -->
-                            <div class="thumb">
-                                <div data-target="#carousel" data-slide-to="1" class="thumb-image border-2"
-                                    style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/i2.jpeg')"></div>
-                            </div><!-- /item -->
-                            <div class="thumb">
-                                <div data-target="#carousel" data-slide-to="2" class="thumb-image border-2"
-                                    style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/min.jpg')"></div>
-                            </div><!-- /item -->
-                            <div class="thumb">
-                                <div data-target="#carousel" data-slide-to="3" class="thumb-image border-2"
-                                    style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/i3.jpeg')"></div>
-                            </div><!-- /item -->
-                            <div class="thumb">
-                                <div data-target="#carousel" data-slide-to="4" class="thumb-image border-2"
-                                    style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/i4.jpeg')"></div>
-                            </div><!-- /item -->
-                            <div class="thumb">
-                                <div data-target="#carousel" data-slide-to="5" class="thumb-image border-2"
-                                    style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/porse.jpg')"></div>
-                            </div><!-- /item -->
-                            <div class="thumb">
-                                <div data-target="#carousel" data-slide-to="6" class="thumb-image border-2"
-                                    style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/rolex-watch.jpg')"></div>
-                            </div><!-- /item -->
-                            <div class="thumb">
-                                <div data-target="#carousel" data-slide-to="7" class="thumb-image border-2"
-                                    style="background-image:url('https://abhpraksa201805.s3.amazonaws.com/women_bag.jpg')"></div>
-                            </div><!-- /item -->
+
+                            {{#each model.item.photos as |image index|}}
+                                {{#if index}}
+                                    <div class="thumb">
+                                        <div data-target="#carousel" data-slide-to="{{index}}" class="thumb-image border-2"
+                                            style="background-image:url('{{image.photoPath}}')"></div>
+                                    </div><!-- /item -->
+                                {{else}}
+                                    <div class="active thumb">
+                                        <div data-target="#carousel" data-slide-to="{{index}}" class="thumb-image border-2"
+                                            style="background-image:url('{{image.photoPath}}')"></div>
+                                    </div><!-- /item -->
+                                {{/if}}
+                            {{/each}}
                         </div>
                     </div><!-- /carousel-inner -->
                 </div>
@@ -94,7 +58,7 @@
                 <button class="custom-button col-md-4 col-sm-12" {{action 'refresh'}}>Watchlist {{fa-icon 'heart' size="lg" class="c-grey"}}</button>
                 <h5 class="border-d-2 my-3">Details</h5>
                 <p class="fs-14">{{model.item.description}}</p>
-                {{!-- {{currentUser.id}} --}}
+                {{model.item.photos.[0].photoPath}}
             </div>
         </div>
     </div>

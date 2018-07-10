@@ -13,17 +13,16 @@
                 {{#link-to 'index' class="nav-item nav-link active" }}Home{{/link-to}}
                 {{#link-to 'index' class="nav-item nav-link" }}Shop{{/link-to}}
                 <div class="dropdown">
-                    <a class="nav-item nav-link cursor-p" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Profile {{fa-icon 'angle-down' size="lg"}}</a>
+                    <a class="nav-item nav-link cursor-p {{if isActive "" "disabled-link"}}" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Profile {{fa-icon 'angle-down' size="lg"}}</a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         {{#link-to 'index' class="dropdown-item" }}Profile{{/link-to}}
                         {{#link-to 'sell' class="dropdown-item" }}Become Seller{{/link-to}}
                         {{#link-to 'index' class="dropdown-item" }}Your Bids{{/link-to}}
                         {{#link-to 'index' class="dropdown-item" }}Wishlist{{/link-to}}
-                        {{#link-to 'index' class="dropdown-item" }}Settings{{/link-to}}
-                        
+                        {{#link-to 'index' class="dropdown-item" }}Settings{{/link-to}}       
                     </div>
                 </div>
             </div>  
         </div>
     </div>
-</nav>
+</nav> 
