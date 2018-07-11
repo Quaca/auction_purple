@@ -9,6 +9,7 @@ export default Base.extend({
     model(params){
         return Ember.RSVP.hash({
             item: this.get('itemService').getItem(params),
+            // photos: this.get('itemService').getPhotosForItem(params),
             maxBid: this.get('bidService').getMaxBid(params),
          })
     },

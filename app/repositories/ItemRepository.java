@@ -1,6 +1,9 @@
 package repositories;
 
+import models.Category;
 import models.Item;
+import models.ItemPhoto;
+import models.Subcategory;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
@@ -35,15 +38,7 @@ public class ItemRepository {
 
     public Date getCurrentDate(){
 
-        Calendar c = new GregorianCalendar();
-        c.set(Calendar.HOUR_OF_DAY, 0);
-        c.set(Calendar.MINUTE, 0);
-        c.set(Calendar.SECOND, 0);
-        c.set(Calendar.MILLISECOND, 0);
-
-        Date currentDate = c.getTime();
-
-        return currentDate;
+        return new Date();
     }
 
     public void createItem(Item item){
@@ -71,6 +66,13 @@ public class ItemRepository {
         return true;
     }
 
+    public List<ItemPhoto> getPhotosForItem(UUID id){
+        return getSession().createCriteria(ItemPhoto.class)
+                .add(Restrictions.eq("item_id", id))
+                .setMaxResults(8)
+                .list();
+    }
+
     public Item getLandingItem(){
         return (Item) setCriteria().addOrder(Order.desc("popularity")).setMaxResults(1).uniqueResult();
     }
@@ -78,8 +80,9 @@ public class ItemRepository {
     public List<Item> getPopularItems(){
 
         List<Item> popularItems = getSession().createCriteria(Item.class)
-                .add(Restrictions.gt("popularity", 90)).setMaxResults(3)
+                .add(Restrictions.gt("endDate", getCurrentDate()))
                 .addOrder(Order.asc("popularity"))
+                .setMaxResults(3)
                 .list();
 
         return popularItems;
@@ -100,6 +103,7 @@ public class ItemRepository {
 
     public List<Item> getNewArrivals(){
         List<Item> newArrivals = getSession().createCriteria(Item.class)
+                .add(Restrictions.gt("endDate", getCurrentDate()))
                 .addOrder(Order.desc("startDate"))
                 .setMaxResults(8)
                 .list();
@@ -109,10 +113,37 @@ public class ItemRepository {
 
     public List<Item> getFeatureProducts(){
         List<Item> featureProducts = getSession().createCriteria(Item.class)
+                .add(Restrictions.gt("endDate", getCurrentDate()))
                 .addOrder(Order.desc("name"))
                 .setMaxResults(4)
                 .list();
         return featureProducts;
+    }
+
+    public Category getCategory(UUID id){
+        return (Category) getSession().createCriteria(Category.class).add(Restrictions.eq("id", id)).uniqueResult();
+    }
+
+    public List<Category> getCategories(){
+        List<Category> categories = getSession().createCriteria(Category.class)
+                .list();
+        return categories;
+    }
+
+    public Subcategory getSubcategory(UUID id){
+        return (Subcategory) getSession().createCriteria(Subcategory.class).add(Restrictions.eq("id", id)).uniqueResult();
+    }
+
+    public List<Subcategory> getSubCategories(Category category){
+        List<Subcategory> subcategories = getSession().createCriteria(Subcategory.class)
+                .add(Restrictions.eq("category", category))
+                .list();
+        return subcategories;
+    }
+
+    public void addPhoto(ItemPhoto itemPhoto){
+        api.em().persist(itemPhoto);
+
     }
 
 }

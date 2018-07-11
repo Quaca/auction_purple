@@ -13,6 +13,15 @@ $purple: #8367d8;
   width: 20%;
 }
 
+.min-h-80{
+  min-height: 80%;
+}
+
+.center-element{
+  margin: 0 auto;
+}
+
+
 
 .bg-grey{
   background-color: $light-grey;
@@ -67,6 +76,23 @@ a{
 }
 .fs-14{
   font-size: 14px;
+}
+
+.cursor-p{
+  cursor: pointer;
+}
+
+
+html{
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 0 300px; /* bottom = footer height */
+  @media (max-width: 768px) {
+    margin: 0 0 550px;
+  }
 }
 
 //-----------------------Top-bar and Navbar------------------------------------
@@ -141,7 +167,7 @@ input[type="search"], textarea, select {
 .custom-button{
   display: inline-block;
   width: 100%;
-  height: 53px;
+  height: 42px;
   font-weight: 400;
   text-align: center;
   cursor:pointer;
@@ -152,13 +178,15 @@ input[type="search"], textarea, select {
   background-color: white;
   user-select: none;
   border: 1px solid #8367D8;
+  color: #8367D8;
   padding: 12px 0px;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 0.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   &:hover{
     background-color:#8367D8;
+    color:white;
   }
 }
 
@@ -310,7 +338,15 @@ input[type="search"], textarea, select {
 //------------------------Footer----------------------
 
 #page-footer{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 250px;
+  width: 100%;
   background-color: $dark-grey;
+  @media (max-width: 768px) {
+    height: 500px;
+  }
 }
 
 .footer-list {
@@ -336,7 +372,7 @@ input[type="search"], textarea, select {
 input[type=text],[type=email],[type=password] {
   background-color: white;
   width: 100%;
-  height: 53px;
+  height: 40px;
   padding: 12px 20px;
   box-sizing: border-box;
   -webkit-transition: 0.5s;
@@ -372,7 +408,7 @@ input[type=text],[type=email],[type=password] {
   box-sizing: border-box;
   padding: 0 20px;
   width: 100%;
-  height: 53px;
+  height: 40px;
   border-radius: 2px;
   background-color: #ffffff;
   border: solid 1px #e1e1e1;
@@ -400,7 +436,8 @@ input[type=text],[type=email],[type=password] {
   margin-bottom: 24px;
 
   &:hover {
-    background-color: $purple;
+    background-color: white;
+    color:$purple;
   }
 }
 
@@ -480,3 +517,44 @@ input[type=text],[type=email],[type=password] {
   background-size: 100% 100%;
 }
 
+//Image Upload
+
+#image-upload-wrapper{
+
+  input[type="file"]{
+    display: none;
+  }
+
+  label{
+    display: block;
+    background: #04c868;
+    color:#fff;
+    border-radius:3px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
+
+.item-image-sm{
+  height: 80px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
+  width: 100%;
+}
+
+.pointer-red{
+  cursor: pointer;
+  color:red;
+}
+.cancel-margin{
+  margin: 0;
+}
+
+.disabled-link{
+  pointer-events: none;
+  cursor: default;
+}

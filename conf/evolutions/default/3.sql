@@ -1,9 +1,9 @@
 # --- !Ups
   ALTER TABLE "user"
-  ADD COLUMN hash text;
+  ADD COLUMN if not exists hash text;
 
   ALTER TABLE "user"
-  ADD COLUMN salt text;
+  ADD COLUMN if not exists salt text;
 
 
 # ---!Downs

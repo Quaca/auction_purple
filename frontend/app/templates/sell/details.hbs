@@ -1,0 +1,63 @@
+<main>
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-sm-12 col-md-6 offset-md-3 border-1">
+                <div class="register-title">
+                    <h3>DETAIL INFORMATION ABOUT PRODUCT</h3>
+                </div>
+                <label for="email">What do you sell?</label>
+                {{input id="email" class='form-input mb-4' type='text' value=name}}
+
+                <div class="row justify-content-between my-3">
+                    <div class="col-6">
+                        <select class="custom-select my-1 mr-sm-2" onchange={{action 'selectCategory' value=target.value}} id="category">
+                            <option selected>Category</option>  
+                            {{#each categories as |category|}}
+                                <option value="{{category.id}}"  {{action 'selectCategory'}}>{{category.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <select class="custom-select my-1 mr-sm-2" onchange={{action 'selectSubcategory' value=target.value}} id="subCategory">
+                            <option selected>Sub Category</option>
+                            {{#each subcategories as |subcategory|}}
+                                <option value="{{subcategory.id}}">{{subcategory.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+
+                <div id="images-wrapper">
+                    {{#each images as |image|}}
+                        {{uploaded-images image=image}}                        
+                    {{/each}}
+                </div>
+                
+
+                <div id="image-upload-wrapper">
+                    <label for="new-post">Upload an image ({{imageUploadPercentage}}%)</label>
+                    {{file-upload id="new-post" url="/api/v1/upload" onProgress=imageUploadPercentage addImage='addImage'}} 
+
+                  {{!-- <label class="image-upload-label" for="profileImageUpload">
+                    {{#if uploadProgress}}
+                    <p class="image-upload-progress">
+                      Uploading: {{uploadProgress}}%
+                    </p>
+                    {{/if}}
+                  </label>
+                  {{file-upload id="profileImageUpload" url="http://localhost:9000/api/v1/fileUpload" restaurantId=model.restaurant.id imageFor="profile" progress=uploadProgressProfile onFinishedUpload=(action 'uploadedImage')}} --}}
+                </div>
+                <label for="description">Description</label>
+                {{textarea value=description class="form-control" rows="4"}}
+                <div class="row justify-content-between my-3">
+                    <div class="col-4">
+                        <button class="custom-button fs-14" {{action 'updateDetailsBack'}}>{{fa-icon 'angle-left' size="lg"}} Back</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="custom-button fs-14" {{action 'updateDetailsNext'}}>Next {{fa-icon 'angle-right' size="lg"}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

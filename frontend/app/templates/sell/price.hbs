@@ -1,0 +1,42 @@
+<main>
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-sm-12 col-md-6 offset-md-3 border-1">
+                <div class="register-title">
+                    <h3>SET PRICES</h3>
+                </div>
+                <label for="price">Your start price</label>
+                {{input id="price" class='form-input mb-4' type='number' min=0 required=true value=price placeholder="Price in dollars"}}
+
+                <div class="row justify-content-between my-3">
+                    <div class="col-12">
+                <label for="duration">Duration of the auction</label>
+
+                        <select class="custom-select my-1 mr-sm-2" onchange={{action 'setDuration' value=target.value}} id="duration">
+                            <option selected hidden>{{durationString}}</option>  
+                            <option value="21600">6 hours</option>
+                            <option value="43200">12 hours</option>
+                            <option value="86400">1 day</option>
+                            <option value="172800">2 days</option>
+                            <option value="259200">3 days</option>
+                            <option value="345600">4 days</option>
+                            <option value="432000">5 days</option>
+                            <option value="518400">6 days</option>
+                            <option value="604800">7 days</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="small">The auction will be automatically closed when the end time comes. The highest bid will win the auction.</p>
+
+                <div class="row justify-content-between my-3">
+                    <div class="col-4">
+                        <button class="custom-button fs-14" type="submit" {{action 'updatePrice'}}>{{fa-icon 'angle-left' size="lg"}} Back</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="form-button button-purple fs-14" type="submit" {{action 'postItem'}}>Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,6 +1,9 @@
 package services;
 
+import models.Category;
 import models.Item;
+import models.ItemPhoto;
+import models.Subcategory;
 import repositories.ItemRepository;
 
 import javax.inject.Inject;
@@ -37,6 +40,8 @@ public class ItemService {
 
     public Item getLandingItem(){return repository.getLandingItem();}
 
+    public List<ItemPhoto> getPhotosForItem(UUID id){return repository.getPhotosForItem(id);}
+
     public List<Item> getPopularItems(){
         return repository.getPopularItems();
     }
@@ -49,4 +54,26 @@ public class ItemService {
     public List<Item> getFeatureProducts(){
         return repository.getFeatureProducts();
     }
+    public List<Category> getCategories(){
+        return repository.getCategories();
+    }
+
+    public Subcategory getSubcategory(UUID id){
+        return repository.getSubcategory(id);
+    }
+
+    public List<Subcategory> getSubCategories(UUID id){
+        Category category = repository.getCategory(id);
+        return repository.getSubCategories(category);
+    }
+
+    public void addPhoto(ItemPhoto itemPhoto){
+        System.out.println("From service" + itemPhoto);
+        this.repository.addPhoto(itemPhoto);
+    }
+
+//    public String updatePicture(ImageUploadForm imageUploadForm) throws Exception{
+//
+//    }
+
 }

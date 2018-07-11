@@ -7,15 +7,10 @@ export default baseController.extend({
 
     userService: Ember.inject.service('user-service'),
 
-    popularItems: alias('model.popularItems'),
-    featureProducts: alias('model.featureProducts'),
-    landingItem: alias('model.landingItem'),
+    popularItems: null,
+    featureProducts: null,
+    landingItem: null
 
-    actions:{
-        logout(){          
-            this.logout();
-            this.transitionToRoute('login');
-        }
-    }
+    
 
 });

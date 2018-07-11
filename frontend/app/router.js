@@ -15,6 +15,11 @@ Router.map(function() {
   this.route('login');
   this.route('forgot-password');
   this.route('change-password');
+  this.route('sell', function() {
+    this.route('details');
+    this.route('price');
+    this.route('shipping');
+  });
 });
 //{path: 'item/:item_id'}
 export default Router;

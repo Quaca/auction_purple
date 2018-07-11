@@ -20,28 +20,19 @@ export default Service.extend({
     getPopularItems(){
         return $.ajax({
             method: 'GET',
-            url: '/api/v1/getPopularItems',
-            success: function(){
-                console.log('popularItems');
-            }   
+            url: '/api/v1/getPopularItems',  
         });
     },
     getLastChance(){
         return $.ajax({
             method: 'GET',
             url: '/api/v1/getLastChance',
-            success: function(){
-                console.log('lastChance');
-            }
         });
     },
     getNewArrivals(){
         return $.ajax({
             method: 'GET',
             url: 'api/v1/getNewArrivals',
-            success: function(){
-                console.log('newArrivals');
-            }
         })
     },
 
@@ -49,9 +40,48 @@ export default Service.extend({
         return $.ajax({
             method: 'GET',
             url: '/api/v1/getFeatureProducts',
-            success: function(){
-                console.log('featureProducts');
-            }
+        })
+    },
+
+    getCategories(){
+        return $.ajax({
+            method: 'GET',
+            url: '/api/v1/category'
+        })
+    },
+
+    getSubCategories(params){
+        return $.ajax({
+            method: 'POST',
+            url: '/api/v1/subCategory',
+            cache: false,
+            contentType: 'application/json',
+            data:params ? JSON.stringify(params) : null,
+        })
+    },
+    createItem(params){
+        return $.ajax({
+            method: 'POST',
+            url: '/api/v1/createItem',
+            cache: false,
+            contentType: 'application/json',
+            data:params ? JSON.stringify(params) : null,
+        })
+    },
+    setImages(params){
+        return $.ajax({
+            method: 'POST',
+            url: '/api/v1/setImages',
+            cache: false,
+            contentType: 'application/json',
+            data:params ? JSON.stringify(params) : null,
+        })
+    },
+
+    getPhotosForItem(params){
+        return $.ajax({
+            method:'GET',
+            url:'/api/v1/photosForItem/'+ params.id,
         })
     }
     
